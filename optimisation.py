@@ -1,13 +1,11 @@
 # import the pandas library
 import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 
 # load your dataset
 df = pd.read_csv('amazon.csv')
-
+le = LabelEncoder()
 # remove non-usable columns
-df = df.drop(['about_product', 'product_id'], axis=1)
-
-# if you want to remove rows with missing values instead, you can use this line
-df = df.dropna()
+df['category'] = le.fit_transform(df['category'])
 
 df.to_csv(r'amazon.csv', index=False)
