@@ -7,5 +7,5 @@ these are the following columns in it
 event_time,event_type,product_id,category_id,category_code,brand,price,user_id,user_session
 
 // tasks ...............
-1. remove category_code, user_session column
+1. remove category_code, user_session, brand column
 df.drop(['category_code', 'user_session'], axis=1)
