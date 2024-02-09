@@ -11,28 +11,18 @@ y = df['historical_price']  # Target variable (prices)
 # Step 2: Further split the dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Display the shapes of the training and testing sets
-print("Shape of X_train:", X_train.shape)
-print("Shape of y_train:", y_train.shape)
-print("Shape of X_test:", X_test.shape)
-print("Shape of y_test:", y_test.shape)
+# Load the saved model from disk
+loaded_model = tf.keras.models.load_model('price_optimization_model.h5')
 
+# Use the loaded model for predictions
+predictions = loaded_model.predict(X_test)
 
-# Step 2: Building the Price Optimization Model
-model = tf.keras.Sequential([
-    tf.keras.layers.Dense(64, activation='relu', input_shape=(X_train.shape[1],)),
-    tf.keras.layers.Dense(32, activation='relu'),
-    tf.keras.layers.Dense(1)  # Output layer with one neuron (for predicting price)
-])
+# Evaluate the loaded model
+loaded_model.evaluate(X_test, y_test)
+# Use the trained model for predictions
 
-# Compile the model
-model.compile(optimizer='adam', loss='mse', metrics=['mae'])
-
-# Display the model summary
-print("Model Summary:")
-model.summary()
-
-# Step 3: Training the Model
-history = model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2, verbose=1)
-
-model.save('price_optimization_model.h5')
+# Display the first few predictions
+for i in range(5):
+    print("Predicted price:", predictions[i][0])
+    print("Actual price:", y_test.iloc[i])
+    print()  # Empty line for clarity
