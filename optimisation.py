@@ -35,3 +35,4 @@ model.summary()
 # Step 3: Training the Model
 history = model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2, verbose=1)
 
+model.save('price_optimization_model.h5')
