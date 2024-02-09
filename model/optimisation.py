@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 # Load the preprocessed dataset
-df = pd.read_csv('preprocessed_price_optimization_dataset.csv')
+df = pd.read_csv('ecommerce_price_optimisation\price_optimisation\model\preprocessed_price_optimization_dataset.csv')
 
 # Step 1: Splitting the dataset into features and target variable
 X = df[['product_id', 'category_id', 'brand_encoded', 'historical_price_scaled']]  # Features
@@ -12,7 +12,7 @@ y = df['historical_price']  # Target variable (prices)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Load the saved model from disk
-loaded_model = tf.keras.models.load_model('price_optimization_model.h5')
+loaded_model = tf.keras.models.load_model('ecommerce_price_optimisation\price_optimisation\model\price_optimization_model.h5')
 
 # Use the loaded model for predictions
 predictions = loaded_model.predict(X_test)
