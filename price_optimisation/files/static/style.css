@@ -2,6 +2,7 @@
 
 html, body {
     font-family: "Noto Sans", sans-serif;
+    background-color: #131314;
 }
 a:hover, a:focus {
     text-decoration:underline;
@@ -96,30 +97,66 @@ footer {
     margin: 0;
     color: #bab9be;
 }
-body{
-    background-color: #131314;
-}
-.left-panel-card {
-    margin-top: 20px;
+.card-container {
     background-color: #1b1b1b;
-    color: #bab9be;
-    width: 98.5%;
-    margin-left: 10px;
-}
-.hide-footer footer {
-    display: none;
-}
-.card {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 250px;
+    border: 1px solid #2a2a2a;
+    border-radius: 14px;
     padding: 20px;
-    margin-bottom: 20px;
+    margin: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    color: #bab9be;
+    font-family: 'Montserrat', sans-serif;
 }
-.card h2 {
-    margin-top: 10px;
-    margin-bottom: 5px;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
+.card-header {
+    background-color: #37393b;
+    color: #bab9be;
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.card-footer {
+    background-color: #2a2a2a;
+    color: #bab9be;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.actual-value,
+.predicted-value {
+    flex: 1;
+    text-align: center;
+    color:#bab9be;
+}
+.actual-value {
+    color: #c6662b;
+    border-top-left-radius: 8px; /* Apply rounded corners */
+    border-bottom-left-radius: 8px;
+    border-right: 1px solid #bab9be; /* Add border between columns */
+    margin-right: -1px;
+}
+.predicted-value {
+    color: #a0beee;
+}
+.color-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
 }

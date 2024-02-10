@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
 {% block title %}Home - Ecommerce Price Optimization{% endblock %}
 {% block content %}
+
 <body class="hide-footer">
     <div>
-        <div class="left-panel-card">
+        <div>
             {% for i, j, k in zipped_data %}
-            <div class="card">
-                <h3>Actual Price: {{ i }}</h3> <!-- Actual price -->
-                <h3>Predicted Price: {{ j }}</h3> <!-- Predicted price -->
-                <h2>Product Id: {{ k }}</h2>
+            <div class="card-container">
+                <div class="color-box"></div>
+                <div class="card-header">
+                    <h2>{{ k }}</h2>
+                </div>
+                <div class="card-footer">
+                    <h3 class="actual-value">{{ i }}</h3>
+                    <h3 class="predicted-value">{{ j|floatformat:"2" }}</h3> 
+                </div>
             </div>
             {% endfor %}
         </div>
     </div>
 </body>
 {% endblock %}
+
