@@ -25,11 +25,12 @@ def actual_vs_predicted(request):
     evaluation = loaded_model.evaluate(X_test, y_test)
     actual_data = list(y_test) 
     predicted_data = list(predictions.flatten()) 
-    zipped_data = list(zip(actual_data, predicted_data))
-    
+    zipped_data = list(zip(actual_data, predicted_data, df['product_id']))
+
     context = {
         'zipped_data': zipped_data,
-        'evaluation': evaluation 
+        'evaluation': evaluation, 
+        'product_id': product_id
     }
     return render(request, 'actual_vs_predicted.html', context)
 
