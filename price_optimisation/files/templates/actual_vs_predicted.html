@@ -4,11 +4,11 @@
 <body class="hide-footer">
     <div>
         <div class="left-panel-card">
-            {% for item, actual_price in zipped_data %}
+            {% for i, j, k in zipped_data %}
             <div class="card">
-                <h2>Product Id: {{ product_id }}</h2>
-                <h3>Actual Price: {{ product.actual_price }}</h3> <!-- Actual price -->
-                <h3>Predicted Price: {{ product.predicted_price }}</h3> <!-- Predicted price -->
+                <h3>Actual Price: {{ i }}</h3> <!-- Actual price -->
+                <h3>Predicted Price: {{ j }}</h3> <!-- Predicted price -->
+                <h2>Product Id: {{ k }}</h2>
             </div>
             {% endfor %}
         </div>
