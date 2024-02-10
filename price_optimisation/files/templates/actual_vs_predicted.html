@@ -5,5 +5,29 @@
 {% block content %}
 <h1>Actual vs Predicted Prices</h1>
 
-<!-- Your content goes here -->
+<div class="actual-predicted-container">
+  <div class="actual-prices">
+    <h2>Actual Prices</h2>
+    <ul>
+      {% for actual_price in actual_data %}
+        <li>{{ actual_price }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="predicted-prices">
+    <h2>Predicted Prices</h2>
+    <ul>
+      {% for predicted_price in predicted_data %}
+        <li>{{ predicted_price }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<!-- Optional: Display evaluation results -->
+<div class="evaluation-results">
+  <h2>Evaluation Results</h2>
+  <p>Mean Squared Error: {{ evaluation }}</p>
+</div>
 {% endblock %}
