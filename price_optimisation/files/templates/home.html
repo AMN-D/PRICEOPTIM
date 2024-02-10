@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}Home - Ecommerce Price Optimization{% endblock %}
-
+{% load static %}
 {% block content %}
-<h1>Welcome to Ecommerce Price Optimization</h1>
-<p>This is a placeholder text for the homepage. You can replace it with your actual content.</p>
+<div class="aspect-ratio-4x3">
+    <div class="design_panel">
+        <img src="{% static 'images/your_image.jpg' %}" alt="Your Image">
+    </div>
+    <div class="content">
+        <h2 style="color: black;">Welcome to Ecommerce Price Optimization</h2>
+        <p>This is where you can optimize your prices to maximize your profits.</p>
+    </div>
+</div>
 {% endblock %}

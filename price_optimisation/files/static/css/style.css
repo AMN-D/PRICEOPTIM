@@ -1,87 +1,60 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-/* Body styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-
-/* Header styles */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Navigation styles */
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-nav li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #fff;
-}
-
-/* Main content styles */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Form styles */
-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-
-form label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-form input[type="text"],
-form input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
+.logo {
+    position: fixed;
+    top: 1%; /* Adjust as needed */
+    left: 2%; /* Adjust as needed */
+    padding: 10px; /* Increase padding for larger size */
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0); /* Transparent background */
+    font-weight: bold;
+    font-family: 'Pacifico', cursive;
+    font-size: 38px; /* Adjust font size as needed */
+    color: black; /* Adjust text color as needed */
+    z-index: 9999; /* Ensure it's above other elements */
 }
-
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-    margin-top: 20px;
+.logo a {
+    color: black; /* Set link text color to black */
+    text-decoration: none; /* Remove underline from links */
+}
+.logo a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+.nav_button {
+    position: fixed;
+    top: 3.5%;
+    right: 11.5%;
+    width: 60px; /* Set the width to make it square */
+    height: 60px; /* Set the height to make it square */
+    line-height: 60px; /* Vertically center the text */
+    background-color: black; /* Blue color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Center the text horizontally */
+    display: block; /* Display as block to fill the container */
+    z-index: 9999;
+}
+.aspect-ratio-4x3 {
+    position: relative;
+    width: 200vh;
+    height:98vh;
+}
+.design_panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background-color: #c9c9c9; /* Just for demonstration */
+}
+.content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background-color: #d4d4d4; /* Just for demonstration */
 }

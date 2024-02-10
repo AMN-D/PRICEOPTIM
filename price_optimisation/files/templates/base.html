@@ -10,25 +10,24 @@
 <body>
     <header>
         <nav>
-            <ul>
+            <a class="logo" href="{% url 'homepage' %}">Optim</a>
+            <a class="nav_button" href="{% url 'price_optimization' %}">O</a>
+            <a class="nav_button" href="{% url 'about' %}" style="right: 3%; width: 120px;">About</a>
+            <!--<ul>
                 <li><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'actual_vs_predicted' %}">Actual vs Predicted</a></li>
                 <li><a href="{% url 'price_optimization' %}">Price Optimization</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
-            </ul>
-        </nav>
+            </ul>>
+        </nav>-->
     </header>
-    
     <main>
-        <div class="container">
-            {% block content %}
-            <!-- Content goes here -->
-            {% endblock %}
+        <div class="aspect-ratio-4x3">
+            <div class="design_panel"></div>
+            <div class="content"></div>
         </div>
     </main>
-
     <footer>
-        <p>&copy; 2024 Ecommerce Price Optimization</p>
     </footer>
 </body>
 </html>
