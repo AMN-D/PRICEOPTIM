@@ -1,12 +1,14 @@
 from sklearn.model_selection import train_test_split
 from django.shortcuts import render, HttpResponse
+from django.template import loader
 import tensorflow as tf
 import pandas as pd
 from pathlib import Path
 import os
 
 def homepage(request):
-    return HttpResponse('HomePage')
+  template = loader.get_template('home.html')
+  return HttpResponse(template.render())
 
 def actual_vs_predicted(request):
     BASE_DIR = Path(__file__).resolve().parent.parent  # Get project root
@@ -35,6 +37,10 @@ def actual_vs_predicted(request):
     # Render the template with the provided context
     return render(request, 'actual_vs_predicted.html', context)
 
+def price_optimization(request):
+    pass
 
+def about(request):
+    pass
 
     
