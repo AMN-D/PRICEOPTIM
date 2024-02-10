@@ -1,60 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Pacifico&display=swap');
 
+html, body {
+    font-family: "Noto Sans", sans-serif;
+}
+a:hover, a:focus {
+    text-decoration:underline;
+}
 .logo {
-    position: fixed;
-    top: 1%; /* Adjust as needed */
-    left: 2%; /* Adjust as needed */
-    padding: 10px; /* Increase padding for larger size */
-    border: none;
-    background-color: rgba(255, 255, 255, 0); /* Transparent background */
-    font-weight: bold;
-    font-family: 'Pacifico', cursive;
-    font-size: 38px; /* Adjust font size as needed */
-    color: black; /* Adjust text color as needed */
-    z-index: 9999; /* Ensure it's above other elements */
+    text-decoration: none;
+    font-family: 'Pacifico';
+    color: #bab9be;
+    font-size:xx-large;
+    padding: 15px;
 }
-.logo a {
-    color: black; /* Set link text color to black */
-    text-decoration: none; /* Remove underline from links */
-}
-.logo a:hover {
-    text-decoration: underline; /* Add underline on hover */
-}
-.nav_button {
-    position: fixed;
-    top: 3.5%;
-    right: 11.5%;
-    width: 60px; /* Set the width to make it square */
-    height: 60px; /* Set the height to make it square */
-    line-height: 60px; /* Vertically center the text */
-    background-color: black; /* Blue color */
-    color: #fff; /* White text color */
-    border: none;
+.logo:hover {
+    text-decoration: none;
+  }
+.nav-button {
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    color: #bab9be;
+    background-color: #282a2c;
     border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none; /* Remove underline */
-    text-align: center; /* Center the text horizontally */
-    display: block; /* Display as block to fill the container */
-    z-index: 9999;
+    text-align: center;
+    line-height: 50px;
+    float: right;
+    margin: 5px;
 }
-.aspect-ratio-4x3 {
-    position: relative;
-    width: 200vh;
-    height:98vh;
+.nav-button:hover {
+    text-decoration: none;
+    background-color: #393b3d; /* Change background color on hover */
+  }
+#about-button {
+    width: 100px;
 }
-.design_panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    background-color: #c9c9c9; /* Just for demonstration */
+.left-panel {
+    position: fixed;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    left: 15px;
+    color: #bab9be;
+    background-color: #1b1b1b;
+    margin-top: 20px;
+    width: 59%;
+    height: 610px;
+    border-radius:2%
 }
-.content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 100%;
-    background-color: #d4d4d4; /* Just for demonstration */
+.right-panel {
+    position: fixed;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    right: 15px;
+    color: #bab9be;
+    background-color: #1b1b1b;
+    margin-top: 20px;
+    width: 38%;
+    height: 610px;
+    border-radius:2%
 }
+footer {
+    padding-left: 10px;
+    position: fixed;
+    bottom: 0px;
+    margin: 0;
+    color: #bab9be;
+}
+body{
+    background-color: #131314;
+}
+

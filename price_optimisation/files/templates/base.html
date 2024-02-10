@@ -9,25 +9,26 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a class="logo" href="{% url 'homepage' %}">Optim</a>
-            <a class="nav_button" href="{% url 'price_optimization' %}">O</a>
-            <a class="nav_button" href="{% url 'about' %}" style="right: 3%; width: 120px;">About</a>
-            <!--<ul>
-                <li><a href="{% url 'homepage' %}">Home</a></li>
-                <li><a href="{% url 'actual_vs_predicted' %}">Actual vs Predicted</a></li>
-                <li><a href="{% url 'price_optimization' %}">Price Optimization</a></li>
-                <li><a href="{% url 'about' %}">About</a></li>
-            </ul>>
-        </nav>-->
+        <a class="logo" href="{% url 'homepage' %}">Optim</a>
+        <a class="nav-button" id="about-button" href="{% url 'about' %}">About</a>
+        <a class="nav-button" href="{% url 'price_optimization' %}">O</a>
     </header>
-    <main>
-        <div class="aspect-ratio-4x3">
-            <div class="design_panel"></div>
-            <div class="content"></div>
-        </div>
-    </main>
+    <div class="container">
+        <main>
+            {% block content %}
+            <div>
+                <div class="left-panel">
+                    <h1>LEFT</h1>
+                </div>
+                <div class="right-panel">
+                    <h1>RIGHT</h1>
+                </div>
+            </div>
+            {% endblock %}
+        </main>
+    </div>
     <footer>
+        <p>amanddhumal@gmail.com</p>
     </footer>
 </body>
 </html>
