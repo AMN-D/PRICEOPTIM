@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Price Optimization - Ecommerce Price Optimization{% endblock %}
+
+{% block content %}
+<h1>Price Optimization</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <label for="brand">Brand:</label>
+  <input type="text" id="brand" name="brand" required><br><br>
+  
+  <label for="category">Category:</label>
+  <input type="text" id="category" name="category" required><br><br>
+  
+  <label for="historical_price">Historical Price:</label>
+  <input type="number" id="historical_price" name="historical_price" required><br><br>
+  
+  <button type="submit">Optimize Price</button>
+</form>
+{% endblock %}

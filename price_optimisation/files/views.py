@@ -38,9 +38,11 @@ def actual_vs_predicted(request):
     return render(request, 'actual_vs_predicted.html', context)
 
 def price_optimization(request):
-    pass
+  template = loader.get_template('price_optimization.html')
+  return HttpResponse(template.render())
 
 def about(request):
-    pass
+  template = loader.get_template('about.html')
+  return HttpResponse(template.render())
 
     
