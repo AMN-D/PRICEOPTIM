@@ -87,6 +87,7 @@ a:hover, a:focus {
     object-fit: cover;
     object-position: center;
     margin: 10px;
+    border-radius: 10px;
 }
 footer {
     padding-left: 10px;
