@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}Home - Ecommerce Price Optimization{% endblock %}
 {% block content %}
-<div class="container">
-    <main>
-        <div>
-            <div class="left-panel">
-                <h1>LEFT IN HOME</h1>
-            </div>
-            <div class="right-panel">
-                <h1>RIGHT</h1>
-            </div>
+<div>
+    <div class="left-panel">
+        <div class="in-left-panel">
+            <h1><span class="price">PRICE</span><br>OPTIMIZATION</br></h1>
+            <p>Guessing just doesn't cut it anymore.<br>Our smart pricing tool, powered by clever AI, predicts the perfect price for your stuff, so you can win more sales and boost your profits without confusing customers. <br>Want to see it in action? Click here to unlock hidden pricing power!</p>
+            <a class="nav-button" id="actual_vs_predicted_link" href="{% url 'actual_vs_predicted' %}">></a>
         </div>
-    </main>
+    </div>
+    <div class="right-panel">
+        <img src="https://i.postimg.cc/DwgbDK75/8-ss2aea-R5-Ycx-CAo-P.png" alt="Vector Image">
+    </div>
 </div>
 {% endblock %}

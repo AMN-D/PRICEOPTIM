@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Noto+Sans:wght@100;400&family=Open+Sans&family=Pacifico&display=swap');
 
 html, body {
     font-family: "Noto Sans", sans-serif;
@@ -9,7 +8,7 @@ a:hover, a:focus {
 }
 .logo {
     text-decoration: none;
-    font-family: 'Pacifico';
+    font-family:  'Pacifico', cursive;
     color: #bab9be;
     font-size:xx-large;
     padding: 15px;
@@ -23,7 +22,7 @@ a:hover, a:focus {
     height: 50px;
     color: #bab9be;
     background-color: #282a2c;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
     line-height: 50px;
     float: right;
@@ -41,6 +40,7 @@ a:hover, a:focus {
     display: grid;
     text-align: center;
     align-items: center;
+    justify-content: center;
     left: 15px;
     color: #bab9be;
     background-color: #1b1b1b;
@@ -49,18 +49,44 @@ a:hover, a:focus {
     height: 610px;
     border-radius:2%
 }
+.in-left-panel {
+    height: 500px;
+    width: 450px;
+    text-align: left;
+}
+.in-left-panel p {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+.in-left-panel h1 {
+    font-size: 50px;
+    font-family: 'Open Sans', sans-serif;
+}
+.price {
+    font-size: 52px;
+    color: white;
+}
+#actual_vs_predicted_link {
+    float: left;
+    margin: 0;
+}
 .right-panel {
     position: fixed;
-    display: grid;
-    text-align: center;
-    align-items: center;
     right: 15px;
     color: #bab9be;
     background-color: #1b1b1b;
     margin-top: 20px;
     width: 38%;
     height: 610px;
-    border-radius:2%
+    border-radius:2%;
+}
+.right-panel img {
+    justify-content: center;
+    width: 97%;
+    height: 97%;
+    object-fit: cover;
+    object-position: center;
+    margin: 10px;
 }
 footer {
     padding-left: 10px;
