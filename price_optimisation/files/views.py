@@ -7,14 +7,14 @@ def homepage(request):
     pass
 
 def actual_vs_predicted(request):
-    df = pd.read_csv('ecommerce_price_optimisation\price_optimisation\model\preprocessed_price_optimization_dataset.csv')
+    df = pd.read_csv('data/preprocessed_price_optimization_dataset.csv')
 
     X = df[['product_id', 'category_id', 'brand_encoded', 'historical_price_scaled']]  # Features
     y = df['historical_price']  # Target variable (prices)
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    loaded_model = tf.keras.models.load_model('ecommerce_price_optimisation\price_optimisation\model\price_optimization_model.h5')
+    loaded_model = tf.keras.models.load_model('data/price_optimization_model.h5')
     predictions = loaded_model.predict(X_test)
     evaluation = loaded_model.evaluate(X_test, y_test)
 
