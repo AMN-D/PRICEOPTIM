@@ -99,4 +99,27 @@ footer {
 body{
     background-color: #131314;
 }
-
+.left-panel-card {
+    margin-top: 20px;
+    background-color: #1b1b1b;
+    color: #bab9be;
+    width: 98.5%;
+    margin-left: 10px;
+}
+.hide-footer footer {
+    display: none;
+}
+.card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.card h2 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
