@@ -4,19 +4,23 @@ html, body {
     font-family: "Noto Sans", sans-serif;
     background-color: #131314;
 }
+
 a:hover, a:focus {
-    text-decoration:underline;
+    text-decoration: underline;
 }
+
 .logo {
     text-decoration: none;
-    font-family:  'Pacifico', cursive;
+    font-family: 'Pacifico', cursive;
     color: #bab9be;
-    font-size:xx-large;
+    font-size: xx-large;
     padding: 15px;
 }
+
 .logo:hover {
     text-decoration: none;
-  }
+}
+
 .nav-button {
     text-decoration: none;
     width: 50px;
@@ -29,13 +33,16 @@ a:hover, a:focus {
     float: right;
     margin: 5px;
 }
+
 .nav-button:hover {
     text-decoration: none;
-    background-color: #393b3d; /* Change background color on hover */
-  }
+    background-color: #393b3d;
+}
+
 #about-button {
     width: 100px;
 }
+
 .left-panel {
     position: fixed;
     display: grid;
@@ -48,29 +55,35 @@ a:hover, a:focus {
     margin-top: 20px;
     width: 59%;
     height: 610px;
-    border-radius:2%
+    border-radius: 2%;
 }
+
 .in-left-panel {
     height: 500px;
     width: 450px;
     text-align: left;
 }
+
 .in-left-panel p {
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
 }
+
 .in-left-panel h1 {
     font-size: 50px;
     font-family: 'Open Sans', sans-serif;
 }
+
 .price {
     font-size: 52px;
     color: white;
 }
+
 #actual_vs_predicted_link {
     float: left;
     margin: 0;
 }
+
 .right-panel {
     position: fixed;
     right: 15px;
@@ -79,8 +92,9 @@ a:hover, a:focus {
     margin-top: 20px;
     width: 38%;
     height: 610px;
-    border-radius:2%;
+    border-radius: 2%;
 }
+
 .right-panel img {
     justify-content: center;
     width: 97%;
@@ -90,6 +104,7 @@ a:hover, a:focus {
     margin: 10px;
     border-radius: 10px;
 }
+
 footer {
     padding-left: 10px;
     position: fixed;
@@ -97,8 +112,9 @@ footer {
     margin: 0;
     color: #bab9be;
 }
+
 .card-container {
-    box-shadow: 0px 8px 16px 0px rgba(13,13,14,255);
+    box-shadow: 0px 8px 16px 0px rgba(13, 13, 14, 255);
     background-color: #1b1b1b;
     width: 250px;
     height: 250px;
@@ -114,6 +130,7 @@ footer {
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
 }
+
 .card-header {
     background-color: #37393b;
     color: #bab9be;
@@ -126,6 +143,7 @@ footer {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+
 .card-footer {
     background-color: #2a2a2a;
     color: #bab9be;
@@ -139,22 +157,26 @@ footer {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
 .actual-value,
 .predicted-value {
     flex: 1;
     text-align: center;
-    color:#bab9be;
+    color: #bab9be;
 }
+
 .actual-value {
     color: #c6662b;
-    border-top-left-radius: 8px; /* Apply rounded corners */
+    border-top-left-radius: 8px; 
     border-bottom-left-radius: 8px;
-    border-right: 1px solid #bab9be; /* Add border between columns */
+    border-right: 1px solid #bab9be; 
     margin-right: -1px;
 }
+
 .predicted-value {
     color: #a0beee;
 }
+
 .color-box {    
     position: absolute;
     top: 0;
@@ -164,6 +186,7 @@ footer {
     border-radius: 14px;
     background: linear-gradient(to right, rgba(173, 216, 230, 0.5), rgba(135, 206, 235, 0.9));
 }
+
 #left {
     position: fixed;
     left: 15px;
@@ -172,13 +195,15 @@ footer {
     margin-top: 20px;
     width: 56%;
     height: 610px;
-    border-radius:2%;
+    border-radius: 2%;
     overflow: auto;
 }
+
 #left::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar width */
-    background: transparent;  /* Transparent background */
+    width: 0; 
+    background: transparent;  
 }
+
 #right {
     position: fixed;
     right: 15px;
@@ -187,8 +212,9 @@ footer {
     margin-top: 20px;
     width: 41%;
     height: 610px;
-    border-radius:2%;
+    border-radius: 2%;
 }
+
 .scale-container {
     margin: 14px;
     position: fixed;
@@ -198,12 +224,14 @@ footer {
     border-radius: 20px;
     border: 1px solid #2a2a2a;
 }
+
 .scale-container h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 17px;
-    margin-top : 10px;
+    margin-top: 10px;
     margin-left: 15px;
 }
+
 #actual-value-scale-color {
     position: fixed;
     width: 13px;
@@ -213,30 +241,36 @@ footer {
     z-index: 1;
     border: 1px solid #131314;
 }
+
 .scale-container p {
     position: fixed;
     margin-left: 42px;
     z-index: 2;
     top: 123px;
-    font-family: 'Montserrat', sans-serif;;
+    font-family: 'Montserrat', sans-serif;
 }
+
 #predicted-value-scale-color {
     position: fixed;
     width: 13px;
     height: 13px;
-    background-color:#a0beee;
+    background-color: #a0beee;
     margin-left: 16px;
     margin-top: 24px;
     z-index: 1;
     border: 1px solid #131314;
 }
-#predicted-price-text {
+
+#
+
+predicted-price-text {
     position: fixed;
     margin-left: 42px;
     z-index: 2;
     top: 147px;
-    font-family: 'Montserrat', sans-serif;;
+    font-family: 'Montserrat', sans-serif;
 }
+
 .visualization-bar {
     margin-top: 14px;
     margin-left: 238px;
@@ -247,15 +281,17 @@ footer {
     border-radius: 20px;
     border: 1px solid #2a2a2a;
 }
+
 .visualization-bar h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 17px;
-    margin-top : 10px;
+    margin-top: 10px;
     margin-left: 15px;
 }
+
 /* Dropdown Button */
 .dropbtn {
-    background-color:transparent;
+    background-color: transparent;
     color: #969798;
     padding: 14px;
     margin-left: 15px;
@@ -264,17 +300,15 @@ footer {
     border-radius: 10px;
     width: 230px;
     text-align: left;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
+}
+
 .dropdown-content {
-    box-shadow: 0px 8px 16px 0px rgba(13,13,14,255);
+    box-shadow: 0px 8px 16px 0px rgba(13, 13, 14, 255);
     display: none;
     position: absolute;
     background-color: #282a2c;
@@ -282,28 +316,28 @@ footer {
     z-index: 1;
     border: 1px solid #2a2a2a;
     border-radius: 10px;
-  }
-  
-  /* Links inside the dropdown */
+}
+
 .dropdown-content a {
     color: #d9dada;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {
+}
+
+.dropdown-content a:hover {
     background-color: #393b3d;
     border-radius: 10px;
-    }
-  
-  /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #282a2c;}
-  
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #282a2c;
+}
+
 .visualization-display {
     margin-top: 135px;
     margin-left: 15px;
@@ -313,13 +347,15 @@ footer {
     background-color: #1e1f20;
     border-radius: 20px;
     border: 1px solid #2a2a2a;
-    overflow: hidden; 
+    overflow: hidden;
 }
+
 .visualization-canvas {
     position: absolute;
     bottom: 15px;
     width: 100%;
-  }
+}
+
 .visualization-header {
     width: 96%;
     height: 26%;
@@ -327,30 +363,31 @@ footer {
     margin-top: 10px;
     margin-left: 10px;
     background-image: url('https://i.postimg.cc/WbxqqHYZ/space-vector-image-dark-Vector-image-1.png');
-    background-size: cover; /* Scale the image to cover the entire background */
-    background-position: center; /* Center the background image */
+    background-size: cover; 
+    background-position: center; 
     filter: brightness(0.7);
-    box-shadow: 0px 8px 16px 0px rgba(13,13,14,255);
+    box-shadow: 0px 8px 16px 0px rgba(13, 13, 14, 255);
 }
+
 .reload-button {
     position: absolute;
-    top: 10px; /* Adjust as needed */
-    right: 20px; /* Adjust to stick to the right */
+    top: 10px; 
+    right: 20px; 
     background-color: #1e1f20;
     border: 1px solid #2a2a2a;
-    border-radius: 10px; /* Adjust for desired rounding */
+    border-radius: 10px; 
     width: 80px;
-    height: 80px; /* Adjust for desired height */
+    height: 80px; 
     cursor: pointer;
-    color:#bab9be;
+    color: #bab9be;
     font-size: 16px;
-    padding: 5px 10px; /* Adjust padding as needed */
-  }
-  
-  .reload-button i {
-    margin-right: 5px; /* Add space between icon and text */
-  }
-  
-  .reload-button:hover {
-    background-color: #2a2b2c; /* Change background color on hover */
-  }
+    padding: 5px 10px; 
+}
+
+.reload-button i {
+    margin-right: 5px; 
+}
+
+.reload-button:hover {
+    background-color: #2a2b2c; 
+}
