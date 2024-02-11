@@ -1,5 +1,32 @@
 {% extends 'base.html' %}
-{% block title %}Home - Ecommerce Price Optimization{% endblock %}
+{% block title %}Price Optimization{% endblock %}
 {% block content %}
-    price  
+<div class="price-optimization">
+    {% if show_result %}
+        <h2>Result:</h2>
+        <p>Product ID: {{ product_id }}</p>
+        <p>Category ID: {{ category_id }}</p>
+        <p>Brand: {{ brand }}</p>
+        <p>Historical Price: ${{ historical_price }}</p>
+        <p>Optimized Price: ${{ optimized_price }}</p>
+    {% else %}
+        <h2>Input Form:</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="product_id">Product ID:</label>
+            <input type="text" id="product_id" name="product_id"><br><br>
+            
+            <label for="category_id">Category ID:</label>
+            <input type="text" id="category_id" name="category_id"><br><br>
+            
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" name="brand"><br><br>
+            
+            <label for="historical_price">Historical Price:</label>
+            <input type="text" id="historical_price" name="historical_price"><br><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+    {% endif %}
+</div>
 {% endblock %}

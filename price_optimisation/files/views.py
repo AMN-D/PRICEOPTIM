@@ -37,27 +37,27 @@ def actual_vs_predicted(request):
 
 def price_optimization(request):
     if request.method == 'POST':
-        # Retrieve user input from the form
-        product_id = request.POST.get('product_id')
-        category_id = request.POST.get('category_id')
-        brand = request.POST.get('brand')
+        product_id = int(request.POST.get('product_id'))
+        category_id = int(request.POST.get('category_id'))
+        brand = int(request.POST.get('brand'))
         historical_price = float(request.POST.get('historical_price'))
-
-        # Perform price optimization using the loaded model
+        # Assuming you have the necessary feature encoding and scaling logic here
         df, loaded_model = perform_price_optimization()
-        # Assuming you have preprocessed the user input in a format compatible with your model
-        input_data = preprocess_input(product_id, category_id, brand, historical_price)
-        optimized_price = loaded_model.predict(input_data)
-
-        # You can render a template with the optimized price or return a JSON response
-        context = {
+        # Prepare the input features
+        X = [[product_id, category_id, brand, historical_price]]
+        # Make prediction
+        optimized_price = loaded_model.predict(X)[0][0]
+        # Pass the form data and prediction result to the template
+        return render(request, 'price_optimization.html', {
+            'show_result': True,
             'product_id': product_id,
-            'optimized_price': optimized_price
-        }
-        return render(request, 'price_optimization_result.html', context)
+            'category_id': category_id,
+            'brand': brand,
+            'historical_price': historical_price,
+            'optimized_price': optimized_price,
+        })
     else:
-        # Handle GET request (show the form)
-        return render(request, 'price_optimization_form.html')
+        return render(request, 'price_optimization.html', {'show_result': False})
 
 def about(request):
   template = loader.get_template('about.html')
