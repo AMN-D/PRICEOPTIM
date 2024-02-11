@@ -30,6 +30,8 @@ def actual_vs_predicted(request):
     context = {
         'zipped_data': zipped_data,
         'evaluation': evaluation, 
+        'actual_data': actual_data,
+        'predicted_data': predicted_data,
     }
     return render(request, 'actual_vs_predicted.html', context)
 
