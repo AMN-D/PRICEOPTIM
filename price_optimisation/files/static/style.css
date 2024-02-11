@@ -98,6 +98,7 @@ footer {
     color: #bab9be;
 }
 .card-container {
+    box-shadow: 0px 8px 16px 0px rgba(13,13,14,255);
     background-color: #1b1b1b;
     width: 250px;
     height: 250px;
@@ -266,13 +267,13 @@ footer {
   }
   
   /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+.dropdown {
     position: relative;
     display: inline-block;
   }
   
   /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
+.dropdown-content {
     box-shadow: 0px 8px 16px 0px rgba(13,13,14,255);
     display: none;
     position: absolute;
@@ -284,7 +285,7 @@ footer {
   }
   
   /* Links inside the dropdown */
-  .dropdown-content a {
+.dropdown-content a {
     color: #d9dada;
     padding: 12px 16px;
     text-decoration: none;
@@ -298,12 +299,12 @@ footer {
     }
   
   /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block;}
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: #282a2c;}
+.dropdown:hover .dropbtn {background-color: #282a2c;}
   
-  .visualization-display {
+.visualization-display {
     margin-top: 135px;
     margin-left: 15px;
     position: fixed;
@@ -312,7 +313,21 @@ footer {
     background-color: #1e1f20;
     border-radius: 20px;
     border: 1px solid #2a2a2a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
+.visualization-canvas {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+  }
+.visualization-header {
+    width: 96%;
+    height: 26%;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-image: url('https://i.postimg.cc/WbxqqHYZ/space-vector-image-dark-Vector-image-1.png');
+    background-size: cover; /* Scale the image to cover the entire background */
+    background-position: center; /* Center the background image */
+    filter: brightness(0.7);
+    box-shadow: 0px 8px 16px 0px rgba(13,13,14,255);
+}

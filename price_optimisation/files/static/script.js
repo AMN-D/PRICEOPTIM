@@ -8,13 +8,14 @@ function reloadVisualizationDisplay() {
     var ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
+
 function showScatterPlot(actualData, predictedData) {
     reloadVisualizationDisplay();
     var ctx = document.getElementById('PlotCanvas').getContext('2d');
     var data = {
         datasets: [{
             label: 'Scatter Plot',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)', // Adjust color as needed
+            backgroundColor: 'rgba(255, 99, 132, 1)', // Adjust color as needed
             data: actualData.map((value, index) => ({ x: value, y: predictedData[index] }))
         }]
     };
