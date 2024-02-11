@@ -191,7 +191,7 @@ footer {
 .scale-container {
     margin: 14px;
     position: fixed;
-    width: 19%;
+    width: 14%;
     height: 100px;
     background-color: #1e1f20;
     border-radius: 20px;
@@ -210,12 +210,13 @@ footer {
     background-color: #c6662b;
     margin-left: 16px;
     z-index: 1;
+    border: 1px solid #131314;
 }
 .scale-container p {
     position: fixed;
-    margin-left: 45px;
+    margin-left: 42px;
     z-index: 2;
-    top: 122px;
+    top: 123px;
     font-family: 'Montserrat', sans-serif;;
 }
 #predicted-value-scale-color {
@@ -226,11 +227,28 @@ footer {
     margin-left: 16px;
     margin-top: 24px;
     z-index: 1;
+    border: 1px solid #131314;
 }
 #predicted-price-text {
     position: fixed;
-    margin-left: 45px;
+    margin-left: 42px;
     z-index: 2;
-    top: 146px;
+    top: 147px;
     font-family: 'Montserrat', sans-serif;;
+}
+.visualization-bar {
+    margin-top: 14px;
+    margin-left: 238px;
+    position: fixed;
+    width: 24%;
+    height: 100px;
+    background-color: #1e1f20;
+    border-radius: 20px;
+    border: 1px solid #2a2a2a;
+}
+.visualization-bar h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    margin-top : 10px;
+    margin-left: 15px;
 }
