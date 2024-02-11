@@ -105,12 +105,13 @@ a:hover, a:focus {
     border-radius: 10px;
 }
 
-footer {
-    padding-left: 10px;
+footer p {
+    padding-left: 5px;
     position: fixed;
-    bottom: 0px;
+    bottom: 10px;
     margin: 0;
     color: #bab9be;
+    font-size: 12px;
 }
 
 .card-container {
@@ -543,3 +544,4 @@ footer {
 .optimize-form label {
     font-weight: bold; /* Make labels bold */
 }
+

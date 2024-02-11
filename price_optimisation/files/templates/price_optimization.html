@@ -6,23 +6,29 @@
         <h1><span class="custom-text">Custom,</span><span class="omtimizer-title"><span>P</span><span>r</span><span>i</span><span>c</span><span>e</span><span>.</span>
             </span><br>Want to improve your product pricing?</br></h1>
         {% if show_result %}
-            <h2>Result:</h2>
-            <p>Product ID: {{ product_id }}</p>
-            <p>Category ID: {{ category_id }}</p>
-            <p>Brand: {{ brand }}</p>
-            <p>Historical Price: ${{ historical_price }}</p>
-            <p>Optimized Price: ${{ optimized_price }}</p>
+            <div class="result">
+                <h2>Result:</h2>
+                <p>Product ID: {{ product_id }}</p>
+                <p>Category ID: {{ category_id }}</p>
+                <p>Brand: {{ brand }}</p>
+                <p>Historical Price: ${{ historical_price }}</p>
+                <p>Optimized Price: ${{ optimized_price }}</p>
+            </div>
         {% else %}
             <form class="optimize-form" method="post">
                 {% csrf_token %}
-                <input type="text" id="product_id" name="product_id" placeholder="Enter Product ID">
-                <input type="text" id="category_id" name="category_id" placeholder="Enter Category ID"><br>
-                <input type="text" id="brand" name="brand" placeholder="Enter Brand">
-                <input type="text" id="historical_price" name="historical_price" placeholder="Enter Historical Price"><br>
-                
+                <input type="text" id="product_id" name="product_id" placeholder="Enter Product ID" required>
+                <input type="text" id="category_id" name="category_id" placeholder="Enter Category ID" required><br>
+                <input type="text" id="brand" name="brand" placeholder="Enter Brand" required>
+                <input type="text" id="historical_price" name="historical_price" placeholder="Enter Historical Price" required><br>                
                 <button class="optimize-input" type="submit">></button>
             </form>
         {% endif %}
     </div>
 </div>
+{% block footer %}
+<footer>
+    <p>&copy; Optim may display inaccurate info, including inaccurate prices, so double-check its responses.</p>
+</footer>
+{% endblock %}
 {% endblock %}
