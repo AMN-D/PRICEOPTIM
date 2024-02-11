@@ -262,7 +262,7 @@ footer {
     font-size: 14px;
     border: 1px solid #2a2a2a;
     border-radius: 10px;
-    width: 200px;
+    width: 230px;
     text-align: left;
   }
   
@@ -313,7 +313,8 @@ footer {
     background-color: #1e1f20;
     border-radius: 20px;
     border: 1px solid #2a2a2a;
-  }
+    overflow: hidden; 
+}
 .visualization-canvas {
     position: absolute;
     bottom: 15px;
@@ -331,3 +332,25 @@ footer {
     filter: brightness(0.7);
     box-shadow: 0px 8px 16px 0px rgba(13,13,14,255);
 }
+.reload-button {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 20px; /* Adjust to stick to the right */
+    background-color: #1e1f20;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px; /* Adjust for desired rounding */
+    width: 80px;
+    height: 80px; /* Adjust for desired height */
+    cursor: pointer;
+    color:#bab9be;
+    font-size: 16px;
+    padding: 5px 10px; /* Adjust padding as needed */
+  }
+  
+  .reload-button i {
+    margin-right: 5px; /* Add space between icon and text */
+  }
+  
+  .reload-button:hover {
+    background-color: #2a2b2c; /* Change background color on hover */
+  }

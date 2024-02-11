@@ -30,13 +30,15 @@
         </div>
         <div class="visualization-bar">
             <h1>Visualization</h1>
+            <button class="reload-button" onclick="reloadVisualizationDisplay()">
+                <i class="fas fa-sync-alt"></i> Clear
+            </button>
             <div class="dropdown">
                 <button class="dropbtn" id="visualization-btn">Select Visualization &#9660;</button>
                 <div class="dropdown-content">
                   <a href="#" onclick="showScatterPlot({{ actual_data|safe }}, {{ predicted_data|safe }});">Scatter Plot</a>
                   <a href="#" onclick="showLinePlot({{ actual_data|safe }}, {{ predicted_data|safe }})">Line Plot</a>
                   <a href="#" onclick="showBarChart({{ actual_data|safe }}, {{ predicted_data|safe }})"">Bar Chart</a>
-                  <a href="#" onclick="reloadVisualizationDisplay()">Clear</a>
                 </div>
             </div>
         </div>
