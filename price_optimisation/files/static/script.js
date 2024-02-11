@@ -73,3 +73,40 @@ function showLinePlot(actualData, predictedData) {
     });
     document.getElementById('visualization-btn').textContent = "Line Plot ▼";
 }
+
+function showBarChart(actualData, predictedData) {
+    reloadVisualizationDisplay();
+    var ctx = document.getElementById('PlotCanvas').getContext('2d');
+    var data = {
+        labels: actualData.map((value, index) => index), // Assuming index as labels
+        datasets: [{
+            label: 'Actual Data',
+            backgroundColor: 'rgba(255, 99, 132, 0.6)', // Adjust color as needed
+            data: actualData
+        }, {
+            label: 'Predicted Data',
+            backgroundColor: 'rgba(54, 162, 235, 0.6)', // Adjust color as needed
+            data: predictedData
+        }]
+    };
+    var options = {
+        scales: {
+            x: {
+                type: 'linear',
+                position: 'bottom'
+            },
+            y: {
+                type: 'linear',
+                position: 'left'
+            }
+        }
+    };
+    currentChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+    document.getElementById('visualization-btn').textContent = "Bar Chart ▼";
+}
+
+
