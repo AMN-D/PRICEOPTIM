@@ -3,9 +3,8 @@
 {% block content %}
 
 <body class="hide-footer">
-    <div>
-        <div>
-            {% for i, j, k in zipped_data %}
+    <div id="left">
+        {% for i, j, k  in zipped_data %}
             <div class="card-container">
                 <div class="color-box"></div>
                 <div class="card-header">
@@ -16,7 +15,13 @@
                     <h3 class="predicted-value">{{ j|floatformat:"2" }}</h3> 
                 </div>
             </div>
-            {% endfor %}
+        {% endfor %}
+    </div>
+    <div id="right">
+        <div class="scale-container">
+            <h1>scale</h1>
+            <div id="actual-value-scale-color"></div><p>Actual Price</p>
+            <div id="predicted-value-scale-color"></div><p id="predicted-price-text">Predicted Price</p>
         </div>
     </div>
 </body>

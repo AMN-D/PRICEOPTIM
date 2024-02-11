@@ -1,4 +1,5 @@
 import os
+import random 
 from pathlib import Path
 import pandas as pd
 from django.shortcuts import render, HttpResponse
@@ -26,7 +27,6 @@ def actual_vs_predicted(request):
     actual_data = list(y_test) 
     predicted_data = list(predictions.flatten()) 
     zipped_data = list(zip(actual_data, predicted_data, df['product_id']))
-
     context = {
         'zipped_data': zipped_data,
         'evaluation': evaluation, 
