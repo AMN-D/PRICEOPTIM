@@ -312,4 +312,7 @@ footer {
     background-color: #1e1f20;
     border-radius: 20px;
     border: 1px solid #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

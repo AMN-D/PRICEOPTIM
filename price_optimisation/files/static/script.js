@@ -1,20 +1,24 @@
-var ctx, data, options;
+var currentChart = null;
 
 function reloadVisualizationDisplay() {
-    var visualizationDisplay = document.querySelector('.visualization-display');
-    visualizationDisplay.innerHTML = ''; // Clear the content
-    document.getElementById('visualization-btn').textContent = "Stand by ▼";
+    if (currentChart) {
+        currentChart.destroy();
+    }
+    var canvas = document.getElementById('PlotCanvas');
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
-
-function data(actualData, predictedData) {
-    data = {
+function showScatterPlot(actualData, predictedData) {
+    reloadVisualizationDisplay();
+    var ctx = document.getElementById('PlotCanvas').getContext('2d');
+    var data = {
         datasets: [{
-            label: 'Plot',
+            label: 'Scatter Plot',
             backgroundColor: 'rgba(255, 99, 132, 0.5)', // Adjust color as needed
             data: actualData.map((value, index) => ({ x: value, y: predictedData[index] }))
         }]
     };
-    options = {
+    var options = {
         scales: {
             x: {
                 type: 'linear',
@@ -26,12 +30,7 @@ function data(actualData, predictedData) {
             }
         }
     };
-}
-
-function showScatterPlot(actualData, predictedData) {
-    data(actualData, predictedData); // Call data() to populate the data variable
-    ctx = document.getElementById('PlotCanvas').getContext('2d');
-    var scatterPlot = new Chart(ctx, {
+    currentChart = new Chart(ctx, {
         type: 'scatter',
         data: data,
         options: options
@@ -40,12 +39,36 @@ function showScatterPlot(actualData, predictedData) {
 }
 
 function showLinePlot(actualData, predictedData) {
-    data()
-    var linePlot = new Chart(ctx, {
+    reloadVisualizationDisplay();
+    var ctx = document.getElementById('PlotCanvas').getContext('2d');
+    var data = {
+        labels: actualData.map((value, index) => index), // Assuming index as labels
+        datasets: [{
+            label: 'Actual Data',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            data: actualData
+        }, {
+            label: 'Predicted Data',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            data: predictedData
+        }]
+    };
+    var options = {
+        scales: {
+            x: {
+                type: 'linear',
+                position: 'bottom'
+            },
+            y: {
+                type: 'linear',
+                position: 'left'
+            }
+        }
+    };
+    currentChart = new Chart(ctx, {
         type: 'line',
         data: data,
         options: options
     });
     document.getElementById('visualization-btn').textContent = "Line Plot ▼";
 }
-
