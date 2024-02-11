@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Price Optimization{% endblock %}
 {% block content %}
-<div class="left-panel">
-    <div class="in-left-panel">
-        <h1><span class="price">PRICE</span><br>OPTIMIZATION</br></h1>
+<div class="optimizer-container">
+    <div class="optimizer-panel">
+        <h1><span class="custom-text">Custom,</span><span class="omtimizer-title"><span>P</span><span>r</span><span>i</span><span>c</span><span>e</span><span>.</span>
+            </span><br>Want to improve your product pricing?</br></h1>
         {% if show_result %}
             <h2>Result:</h2>
             <p>Product ID: {{ product_id }}</p>
@@ -12,27 +13,16 @@
             <p>Historical Price: ${{ historical_price }}</p>
             <p>Optimized Price: ${{ optimized_price }}</p>
         {% else %}
-            <h2>Input Form:</h2>
-            <form method="post">
+            <form class="optimize-form" method="post">
                 {% csrf_token %}
-                <label for="product_id">Product ID:</label>
-                <input type="text" id="product_id" name="product_id"><br><br>
+                <input type="text" id="product_id" name="product_id" placeholder="Enter Product ID">
+                <input type="text" id="category_id" name="category_id" placeholder="Enter Category ID"><br>
+                <input type="text" id="brand" name="brand" placeholder="Enter Brand">
+                <input type="text" id="historical_price" name="historical_price" placeholder="Enter Historical Price"><br>
                 
-                <label for="category_id">Category ID:</label>
-                <input type="text" id="category_id" name="category_id"><br><br>
-                
-                <label for="brand">Brand:</label>
-                <input type="text" id="brand" name="brand"><br><br>
-                
-                <label for="historical_price">Historical Price:</label>
-                <input type="text" id="historical_price" name="historical_price"><br><br>
-                
-                <button type="submit">Submit</button>
+                <button class="optimize-input" type="submit">></button>
             </form>
         {% endif %}
     </div>
-</div>
-<div class="right-panel">
-    <h1>RIGHT</h1>
 </div>
 {% endblock %}
