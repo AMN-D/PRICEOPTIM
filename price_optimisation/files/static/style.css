@@ -575,3 +575,41 @@ footer p {
     font-size: 23px;
     font-family: 'Montserrat', sans-serif;
 }
+
+
+.about-section {
+    width: 70%;
+    background-color: #1b1b1b;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    color: #bab9be;
+}
+
+.about-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.about-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.about-section ul li {
+    margin-bottom: 10px;
+}
+
+.about-section ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.about-section ul li a:hover {
+    text-decoration: underline;
+}
