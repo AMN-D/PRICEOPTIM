@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}Home - Ecommerce Price Optimization{% endblock %}
 {% block content %}
-<div class="home-content">
-    <div class="content-container">
-        <h1><span>PRICE</span> OPTIMIZATION</h1>
-        <p>Guessing just doesn't cut it anymore. Our smart pricing tool, powered by clever AI, predicts the perfect price for your products, so you can win more sales and boost your profits without confusing customers. Want to see it in action? Click <a href="{% url 'actual_vs_predicted' %}">here</a> to unlock hidden pricing power!</p>
-        <a class="action-button" id="actual-vs-predicted-link" href="{% url 'actual_vs_predicted' %}">Explore Now ></a>
-    </div>
+<div class="content-container-home">
+    <h1 class="content-container-home-header">Boost Margin.</h1>
+    <p class="content-container-home-paragraph">Unlock insights, data, and strategies<br>
+        from analysts on price trends</p>
+    <a class="action-button" id="actual-vs-predicted-link" href="{% url 'actual_vs_predicted' %}">Get Started</a>
 </div>
+<hr class="content-container-home-divider">
 {% endblock %}
