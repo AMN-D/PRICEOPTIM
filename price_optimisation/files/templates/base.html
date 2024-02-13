@@ -11,24 +11,26 @@
 </head>
 <body>
     {% block header %}
-    <header>
+    <header class="navigation">
         <a class="logo-link" href="{% url 'homepage' %}">Optim</a>
-        <a class="nav-link" id="about-link" href="{% url 'about' %}">About</a>
-        <a class="nav-link" href="{% url 'price_optimization' %}">O</a>
+        <a class="nav-link-custom" href="{% url 'price_optimization' %}">Custom</a>
+        <a class="nav-link-about" id="about-link" href="{% url 'about' %}">About</a>
     </header>
+    <hr class="nav-divider">
     {% endblock %}
     <div class="page-container">
         <main>
             {% block content %}
-            <div class="content-container">
+            <div class="content-container-home">
+            </div>
+            <div class="content-container-avp">
+            </div>
+            <div class="content-container-custom">
+            </div>
+            <div class="content-container-about">
             </div>
             {% endblock %}
         </main>
     </div>
-    {% block footer %}
-    <footer>
-        <p>@ github.com/amn-d</p>
-    </footer>
-    {% endblock %}
 </body>
 </html>
