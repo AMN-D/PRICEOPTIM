@@ -1,6 +1,10 @@
-body {
+/* Reset default browser styles */
+body, html {
     margin: 0;
     padding: 0;
+}
+
+body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     color: rgba(0,0,0,0.8);
@@ -31,6 +35,289 @@ header {
 
 .nav-link {
     display: flex;
+    margin-left: auto; /* Align links to the right */
+}
+
+.nav-link a {
+    margin-left: 20px; /* Add space between links */
+    text-decoration: none;
+    color: black;
+}
+
+/* Add these styles to your existing CSS */
+
+.content-container-home {
+    padding-left: 9.8vw;
+    padding-right: 9.8vw;
+    margin-top: 10vh; /* Adjust as needed */
+}
+
+.content-container-home-header {
+    font-size: 7.1em;
+    font-family: Georgia;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: -0.055em;
+    line-height: 88px;
+    margin-bottom: 4vh; /* Adjust as needed */
+}
+
+.content-container-home-paragraph {
+    font-size: 24px;
+    color: #242424;
+    font-family: sans-serif;
+    margin-bottom: 6.3vh; /* Adjust as needed */
+}
+
+.action-button {
+    font-size: 20px;
+    width: 213px;
+    border-radius: 99em;
+    border: 1px solid rgba(25, 25, 25, 1);
+    font-family: sans-serif;
+    text-decoration: none;
+    background-color: rgba(25, 25, 25, 1);
+    color: white;
+    font-weight: 400;
+    padding: 8px 20px;
+    display: inline-block; /* Ensure button takes up only necessary space */
+    margin-top: 2vh; /* Adjust as needed */
+}
+
+.content-container-home-divider {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-top: 5vh; /* Adjust as needed */
+}
+ 
+/* Add these styles to your existing CSS */
+
+body.hide-footer {
+    margin-bottom: 0; /* Adjust as needed */
+}
+
+#left {
+    float: left;
+    width: 50%; /* Adjust as needed */
+    padding: 20px; /* Adjust as needed */
+}
+
+#right {
     float: right;
-    justify-content: flex-end;
+    width: 50%; /* Adjust as needed */
+    padding: 20px; /* Adjust as needed */
+}
+
+.card-container {
+    background-color: #f9f9f9; /* Adjust as needed */
+    border: 1px solid #ddd; /* Adjust as needed */
+    border-radius: 5px; /* Adjust as needed */
+    margin-bottom: 20px; /* Adjust as needed */
+    padding: 20px; /* Adjust as needed */
+}
+
+.color-box {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    background-color: #ccc; /* Adjust as needed */
+    float: left;
+    margin-right: 10px; /* Adjust as needed */
+}
+
+.card-header h2 {
+    margin: 0; /* Adjust as needed */
+}
+
+.card-footer {
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.actual-value, .predicted-value {
+    margin: 0; /* Adjust as needed */
+}
+
+.scale-container, .visualization-display, .visualization-bar {
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.scale-container h1, .visualization-bar h1 {
+    margin-top: 0; /* Adjust as needed */
+}
+
+#actual-value-scale-color, #predicted-value-scale-color {
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    display: inline-block;
+    margin-right: 10px; /* Adjust as needed */
+}
+
+#predicted-price-text {
+    margin-bottom: 0; /* Adjust as needed */
+}
+
+.reload-button {
+    padding: 5px 10px; /* Adjust as needed */
+    font-size: 16px; /* Adjust as needed */
+    margin-bottom: 10px; /* Adjust as needed */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50; /* Adjust as needed */
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9; /* Adjust as needed */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Adjust as needed */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41; /* Adjust as needed */
+}
+ 
+/* Add these styles to your existing CSS */
+
+.about-section-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-section {
+    width: 48%; /* Adjust as needed */
+    background-color: #f9f9f9; /* Adjust as needed */
+    padding: 20px; /* Adjust as needed */
+    border: 1px solid #ddd; /* Adjust as needed */
+    border-radius: 5px; /* Adjust as needed */
+}
+
+.about-section h2 {
+    margin-top: 0; /* Adjust as needed */
+}
+
+.about-section p {
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.about-section ul {
+    margin-top: 10px; /* Adjust as needed */
+    padding-left: 20px; /* Adjust as needed */
+}
+
+.about-section ul li {
+    list-style-type: disc; /* Adjust as needed */
+    margin-top: 5px; /* Adjust as needed */
+}
+
+.about-section ul li a {
+    color: #007bff; /* Adjust as needed */
+}
+ 
+/* Add these styles to your existing CSS */
+
+.optimizer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.optimizer-panel {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.optimizer-panel h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.custom-text {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.omtimizer-title {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.optimize-form {
+    margin-top: 20px;
+}
+
+.optimize-form input[type="text"] {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.optimize-form button.optimize-input {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.optimize-form button.optimize-input:hover {
+    background-color: #0056b3;
+}
+
+.result {
+    margin-top: 20px;
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.in-result {
+    margin-bottom: 10px;
+}
+
+.result p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
 }
