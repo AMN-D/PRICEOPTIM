@@ -10,26 +10,28 @@
     <script src="{% static 'script.js' %}"></script>
 </head>
 <body>
-    {% block header %}
-    <header class="navigation">
-        <a class="logo-link" href="{% url 'homepage' %}">Optim</a>
-        <a class="nav-link-custom" href="{% url 'price_optimization' %}">Custom</a>
-        <a class="nav-link-about" id="about-link" href="{% url 'about' %}">About</a>
-    </header>
-    {% endblock %}
-    <div class="page-container">
-        <main>
-            {% block content %}
-            <div class="content-container-home">
+    <div class="root">
+        {% block header %}
+        <header class="navigation">
+            <div class="logo-link">
+                <a href="{% url 'homepage' %}">Optim</a>        
             </div>
-            <div class="content-container-avp">
+            <div class="nav-link">
+                <a class="nav-link-custom" href="{% url 'price_optimization' %}">Custom</a>
+                <a class="nav-link-about" id="about-link" href="{% url 'about' %}">About</a>
             </div>
-            <div class="content-container-custom">
-            </div>
-            <div class="content-container-about">
-            </div>
-            {% endblock %}
-        </main>
+        </header>
+        {% endblock %}
+        <div class="page-container">
+            <main>
+                {% block content %}
+                <div class="content-container-home"></div>
+                <div class="content-container-avp"></div>
+                <div class="content-container-custom"></div>
+                <div class="content-container-about"></div>
+                {% endblock %}
+            </main>
+        </div>
     </div>
 </body>
 </html>
