@@ -14,7 +14,14 @@
     <header>
         <div class="navbar-container">
             <nav class="navbar">
-                    <a href="{% url 'homepage' %}" class="logo">Optim</a>        
+                <a href="{% url 'homepage' %}">
+                    <div class="logo">
+                        <div class="inner-circle">
+                            <div class="inner-dot">
+                            </div>
+                        </div>   
+                    </div>  
+                </a>   
                 <ul class="nav-links">
                     <li><a class="nav-link-custom" href="{% url 'price_optimization' %}">Custom</a></li>
                     <li><a class="nav-link-about" id="about-link" href="{% url 'about' %}">About</a></li>
