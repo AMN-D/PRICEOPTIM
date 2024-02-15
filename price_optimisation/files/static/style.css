@@ -111,11 +111,18 @@ body {
     margin-left: 23px;
     margin-top: 10px;
     display: flex;
+    flex-direction: column;
     position: relative;
-    height: 71vh;
+    height: 73vh;
 }
 
 .content-container-home-header {
     font-size: 1rem;
     color: #eeeff3;
+}
+
+.content-container-home-paragraph {
+    font-size: 3.6em;
+    color: #eeeff3;
+    margin-top: 0;
 }
