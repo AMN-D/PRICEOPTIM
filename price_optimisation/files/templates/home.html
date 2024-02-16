@@ -7,11 +7,21 @@
         <h1 class="content-container-home-paragraph">Don't let <br>
             them overcharge <br>
             your food</h1>
-        <a class="action-button" id="actual-vs-predicted-link" href="{% url 'actual_vs_predicted' %}">Get Started</a>
+        <a class="action-button" id="actual-vs-predicted-link" href="{% url 'actual_vs_predicted' %}">
+            <div class="text-container">
+                <span class="avp-text">avp</span>
+                <h3 class="get-started-text">Get Started</h3>
+            </div>
+            <span class="cash-symbol">&#x20A6;</span>
+        </a>
     </div>
-    <div class="content-container-right-top"></div>
+    <a href="{% url 'actual_vs_predicted' %}">
+        <div class="content-container-right-top">
+            <p>WORLD OF DATA SCIENCE</p>
+            <h1>View our repo.</h1>
+        </div>
+    </a>
     <div class="content-container-right-center"></div>
     <div class="content-container-right-right"></div>
 </div>
-<hr class="content-container-home-divider">
 {% endblock %}

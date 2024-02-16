@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    margin-left: 2%;
+    margin-left: 8%;
     margin-top: 1%;
     padding: 0;
     background: #eeeff3;
@@ -103,7 +103,7 @@ body {
 
 .content-container-left {
     float: left;
-    width: 36%;
+    width: 40%;
     border-radius: 40px;
     background-color: #262626;
     padding-top: 2rem;
@@ -125,4 +125,122 @@ body {
     font-size: 3.6em;
     color: #eeeff3;
     margin-top: 0;
+}
+
+.action-button {
+    text-decoration: none;
+    width: 33%;
+    padding: 0px 30px;
+    background-color: #e2e3e7;
+    border: none;
+    border-radius: 28px;
+    display: inline-block;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin-top: 22%;
+  }
+
+.cash-symbol {
+    position: absolute;
+    top: 50%;
+    right: 10%; 
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+}
+
+.action-button::after {
+    content: "";
+    position: absolute;
+    right: 70px; 
+    top: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 11rem;
+    background-color: #333;
+    transition: transform 0.2s ease-in-out;
+}
+
+.action-button .text-container {
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.action-button .text-container span {
+    font-size: 1rem;
+    color: #b3b3b5;
+    top: 20px;
+    margin-bottom: 5px;
+}   
+
+.action-button .get-started-text {
+    margin: 0;
+    padding: 0;
+}
+
+.action-button:hover {
+    background-color: #c9ccc6;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); 
+  
+    &::after {
+        transform: translateY(-50%) scale(1.1);
+  }
+}
+  
+.action-button:hover {
+    background-image: linear-gradient(90deg, #e2e3e7 70%, #d6d8da 50%);
+}
+
+.content-container-right-top {
+    float: left;
+    width: 40%;
+    border-radius: 40px;
+    background-color: #d7d8dc;
+    padding-top: 2rem;
+    padding-left: 3.5rem;
+    margin-left: 23px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 33vh;
+}
+
+.content-container-right-top h1 {
+    margin-top: auto;
+    margin-bottom: 2rem;
+    margin-left: 0rem;
+    font-size: 3rem;
+}
+
+.content-container-right-top p {
+    margin-top: 0;
+}
+
+.content-container-right-center,
+.content-container-right-right {
+    float: left;
+    width: 17%;
+    border-radius: 40px;
+    background-color: #b386fd;
+    padding-top: 2rem;
+    padding-left: 3.5rem;
+    margin-left: 2%; /* Adjust the margin to align under the right top container */
+    margin-top: 2.5vh; /* Move the containers up to align with the top container */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 33vh;
+}
+
+.content-container-right-right {
+    right: 0;
+    background-color: #b1f041;
 }
