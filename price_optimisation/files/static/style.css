@@ -222,6 +222,7 @@ body {
 
 .content-container-right-top p {
     margin-top: 0;
+    font-size: 0.8rem;
 }
 
 .content-container-right-center,
@@ -243,4 +244,18 @@ body {
 .content-container-right-right {
     right: 0;
     background-color: #b1f041;
+}
+
+.repo-button {
+    color: black; 
+}
+
+.diagonal-arrow {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-top: 40px solid #242424;
+    position: absolute;
+    bottom: 75%;
+    right: 5%;
 }
