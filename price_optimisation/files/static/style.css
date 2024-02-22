@@ -1,261 +1,119 @@
-body {
+/* style.css */
+
+/* Resetting default margin and padding */
+body, html {
     margin: 0;
-    margin-left: 8%;
-    margin-top: 1%;
     padding: 0;
-    background: #eeeff3;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    font-family: sans-serif;
 }
 
-.navbar-container {
-    width: 97%;
-    max-width: 97%;
+/* Styling container for the homepage content */
+.content-container-home {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 24px;
+    padding: 50px;
 }
 
-.navbar {
-    background-color: #eeeff3;
-    width: 100%;
+/* Styling the left content container */
+.content-container-left {
+    flex: 1;
+}
+
+/* Styling the header text */
+.content-container-home-header {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Styling the main headline */
+.content-container-home-paragraph {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-top: 20px;
+}
+
+/* Styling the action button */
+.action-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling the text container inside the action button */
+.text-container {
     display: flex;
     align-items: center;
 }
 
-.logo {
-    filter: blur(0.1px);
-    width: 60px;
-    height: 60px;
-    position: relative;
-    background-color: #262626;
-    border-radius: 50%;
-    pointer-events: all;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+/* Styling the AVP text */
+.avp-text {
+    font-size: 18px;
+    margin-right: 10px;
 }
 
-.logo .inner-circle {
-    filter: blur(0.1px);
-    position: absolute;
-    top: 20%; 
-    left: 20%;
-    width: 50%; 
-    height: 50%; 
-    border-radius: 50%; 
-    border: 3px solid #eeeff3;
-    transition: border-color 0.3s ease;
-}
-
-.logo .inner-dot {
-    filter: blur(0.1px);
-    position: absolute;
-    top: 15%;
-    left: 45%; 
-    width: 4px; 
-    height: 4px; 
-    background-color: #eeeff3;
-    border-radius: 100%; 
-    transition: border-color 0.3s ease;
-}
-
-.logo:hover {
-    background-color: #121212;
-    box-shadow: 0 0 5px rgba(0.3, 0.3, 0.3, 0.3);
-}
-
-.logo .inner-circle:hover {
-    border: 3px solid #fff;
-}
-  
-.logo .inner-dot:hover {
-    border: 3px solid #fff;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    margin-left: 20px;
-}
-
-.nav-link-custom,
-.nav-link-about {
-    font-size: 1rem;
-    color: #262626;
-    text-decoration: none;
-    padding: 8px 10px;
-    transition: color 0.3s ease;
-}
-
-.nav-link-about:hover,
-.nav-link-custom:hover
-{
-    color: black;
-}
-
-.nav-link-custom:hover,
-.nav-link-about:hover {
-  border-color: #fff; 
-}
-
-.content-container-left {
-    float: left;
-    width: 40%;
-    border-radius: 40px;
-    background-color: #262626;
-    padding-top: 2rem;
-    padding-left: 3.5rem;
-    margin-left: 23px;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    height: 73vh;
-}
-
-.content-container-home-header {
-    font-size: 1rem;
-    color: #eeeff3;
-}
-
-.content-container-home-paragraph {
-    font-size: 3.6em;
-    color: #eeeff3;
-    margin-top: 0;
-}
-
-.action-button {
-    text-decoration: none;
-    width: 33%;
-    padding: 0px 30px;
-    background-color: #e2e3e7;
-    border: none;
-    border-radius: 28px;
-    display: inline-block;
-    text-align: left;
-    font-family: sans-serif;
-    font-size: 1rem;
-    color: #333;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    margin-top: 22%;
-  }
-
+/* Styling the cash symbol */
 .cash-symbol {
-    position: absolute;
-    top: 50%;
-    right: 10%; 
-    transform: translateY(-50%);
-    font-size: 2.5rem;
+    font-size: 24px;
 }
 
-.action-button::after {
-    content: "";
-    position: absolute;
-    right: 70px; 
-    top: 0;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 11rem;
-    background-color: #333;
-    transition: transform 0.2s ease-in-out;
+/* Styling the repo button */
+.repo-button {
+    text-decoration: none;
 }
 
-.action-button .text-container {
-    padding: 15px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.action-button .text-container span {
-    font-size: 1rem;
-    color: #b3b3b5;
-    top: 20px;
-    margin-bottom: 5px;
-}   
-
-.action-button .get-started-text {
-    margin: 0;
-    padding: 0;
-}
-
-.action-button:hover {
-    background-color: #c9ccc6;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); 
-  
-    &::after {
-        transform: translateY(-50%) scale(1.1);
-  }
-}
-  
-.action-button:hover {
-    background-image: linear-gradient(90deg, #e2e3e7 70%, #d6d8da 50%);
-}
-
-.content-container-right-top {
-    float: left;
-    width: 40%;
-    border-radius: 40px;
-    background-color: #d7d8dc;
-    padding-top: 2rem;
-    padding-left: 3.5rem;
-    margin-left: 23px;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    height: 33vh;
-}
-
-.content-container-right-top h1 {
-    margin-top: auto;
-    margin-bottom: 2rem;
-    margin-left: 0rem;
-    font-size: 3rem;
-}
-
-.content-container-right-top p {
-    margin-top: 0;
-    font-size: 0.8rem;
-}
-
+/* Styling the right content containers */
+.content-container-right-top,
 .content-container-right-center,
 .content-container-right-right {
-    float: left;
-    width: 17%;
-    border-radius: 40px;
-    background-color: #b386fd;
-    padding-top: 2rem;
-    padding-left: 3.5rem;
-    margin-left: 2%; /* Adjust the margin to align under the right top container */
-    margin-top: 2.5vh; /* Move the containers up to align with the top container */
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    height: 33vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
 }
 
-.content-container-right-right {
-    right: 0;
-    background-color: #b1f041;
-}
-
-.repo-button {
-    color: black; 
-}
-
+/* Styling the diagonal arrow */
 .diagonal-arrow {
     width: 0;
     height: 0;
-    border-left: 40px solid transparent;
-    border-top: 40px solid #242424;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #007bff transparent transparent transparent;
     position: absolute;
-    bottom: 75%;
-    right: 5%;
+    right: 20px;
+    bottom: 10px;
+}
+
+/* Styling the small text */
+.small-text {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Styling the about us text */
+.about-us {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Styling the arrow */
+.arrow {
+    border: solid #007bff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
 }
