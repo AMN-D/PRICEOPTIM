@@ -1,44 +1,47 @@
+<!--HEADER AND EXO-SKELETON-->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Ecommerce Price Optimization{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{% static 'script.js' %}"></script>
-</head>
-<body>
-    {% block header %}
-    <header>
-        <div class="navbar-container">
-            <nav class="navbar">
-                <a href="{% url 'homepage' %}">
-                    <div class="logo">
-                        <div class="inner-circle">
-                            <div class="inner-dot">
-                            </div>
-                        </div>   
-                    </div>  
-                </a>   
-                <ul class="nav-links">
-                    <li><a class="nav-link-custom" href="{% url 'price_optimization' %}">Custom</a></li>
-                    <li><a class="nav-link-about" id="about-link" href="{% url 'about' %}">About</a></li>
-                </ul>
-            </nav>
-        </div>
+    {% block head %}
+    <header class="base-header">
+        <div class="base-logo"></div>
+        <div class="base-button-custom"></div>
+        <div class="base-logo-github"></div>
+        <div class="base-language"></div>
+        <div class="base-links"></div>
     </header>
     {% endblock %}
-    <div class="page-container">
-        <main>
-            {% block content %}
-            <div class="content-container-home"></div>
-            <div class="content-container-avp"></div>
-            <div class="content-container-custom"></div>
-            <div class="content-container-about"></div>
-            {% endblock %}
-        </main>
+</head>
+<body>
+    {% block start %}
+    <div class="body-main">
+        <div class="body-main-scroll"></div>
+        <div class="body-main-custom">
+            <div class="body-main-custom-abs"></div>
+            <div class="body-image">
+                <div class="body-image-container"></div>
+                <div class="body-image-hr"></div>
+            </div>
+            <div class="body-container">
+                <div class="body-container-text"></div>
+                <div class="body-container-text-lite"></div>
+                <div class="body-container-text-desc"></div>
+                <div class="body-container-div-design-one"></div>
+                <div class="body-container-div-design-two"></div>
+                <div class="body-container-div-design-three"></div>
+                <div class="body-container-div-num"></div>
+            </div>
+        </div>
     </div>
+    {% endblock %}
 </body>
+<footer>
+    {% block footer %}
+
+    {% endblock %}
+</footer>
 </html>
