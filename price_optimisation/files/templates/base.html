@@ -6,17 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
     {% block head %}
     <header class="base-header">
-        <div class="base-logo"></div>
+        <div class="base-logo">
+            <a href="{% url 'homepage' %}">
+                <h1>Dpo</h1>
+            </a>
+        </div>
         <div class="base-button-custom"></div>
         <div class="base-logo-github"></div>
         <div class="base-language"></div>
         <div class="base-links"></div>
     </header>
     {% endblock %}
-</head>
-<body>
+
     {% block start %}
     <div class="body-main">
         <div class="body-main-scroll"></div>
