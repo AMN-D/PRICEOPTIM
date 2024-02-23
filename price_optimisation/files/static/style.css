@@ -160,7 +160,7 @@ body {
 .body-image {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex: 1;
     min-height: 100px;
@@ -169,11 +169,11 @@ body {
 
 .body-image-container {
     background-image: url('https://i.postimg.cc/056Sp09G/Journey-Casual-Polar-Bear-1-removebg-preview.png');
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 68%;
-    height: 80%;
+    height: 430px;
     border-bottom: 5px black solid;
     border-bottom-left-radius: 5px; 
     border-bottom-right-radius: 5px;
@@ -181,11 +181,11 @@ body {
 
 .body-image-hr {
     position: relative;
-    width: 130px;
+    width: 180px;
     height: 2px;
     background-color: var(--neon-gold);
-    bottom: 13%;
-    left: 0%;
+    bottom: -8%;
+    left: 2%;
     transform: translateX(-50%);
     transition: box-shadow 0.3s ease;
     cursor: pointer;
@@ -198,7 +198,7 @@ body {
 .left-number,
 .right-number {
     position: absolute;
-    bottom: 9%;
+    bottom: 2%;
     transform: translateY(-50%);
     font-size: 14px;
     font-family: "Poppins", sans-serif;
