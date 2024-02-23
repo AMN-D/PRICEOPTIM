@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
     --bg-color: #E2E2E2;
+    --font-color: black;
 }
 
 body {
@@ -11,6 +13,9 @@ body {
 /* HEADER */
 
 .base-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
@@ -18,11 +23,16 @@ body {
     z-index: 999;
     margin: 0 auto;
     padding: 0 20px;
+    border-bottom: 1px solid black;
+}
+
+.base-header-container-left {
+    display: flex;
+    align-items: center;
 }
 
 .base-logo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -32,9 +42,75 @@ body {
     font-style: normal;
     font-size: 80px;
     margin: 0;
+    padding-bottom: 14px;
+    transform: rotate(-7deg);
 }
 
 .base-logo a {
     text-decoration: none;
-    color: black;
+    color: var(--font-color);
+}
+
+.base-header-container-right {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+}
+
+.base-logo-github {
+    left: auto;
+    padding-right: 20px;
+}
+
+.base-logo-github svg {
+    width: 100px;
+    height: 50px;
+}
+
+.base-logo-github a {
+    color: var(--font-color);
+}
+
+.base-language p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+
+.base-links {
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+.base-links ul  {
+    list-style-type: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+.base-links li {
+    display: inline-block;
+    margin-right: 40px; 
+}
+
+.base-links li:last-child {
+    margin-right: 0;
+}
+
+.base-links a  {
+    text-decoration: none;
+    color: var(--font-color);
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    transition: text-shadow 0.5s ease;
+}
+
+.base-links li :hover {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }

@@ -11,15 +11,32 @@
 
     {% block head %}
     <header class="base-header">
-        <div class="base-logo">
-            <a href="{% url 'homepage' %}">
-                <h1>Dpo</h1>
-            </a>
+        <div class="base-header-container-left">
+            <div class="base-logo">
+                <a href="{% url 'homepage' %}">
+                    <h1>Dpo.</h1>
+                </a>
+            </div>
         </div>
-        <div class="base-button-custom"></div>
-        <div class="base-logo-github"></div>
-        <div class="base-language"></div>
-        <div class="base-links"></div>
+        <div class="base-links">
+            <ul>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
+                <li><a href="{% url 'price_optimization' %}">CUSTOM</a></li>
+                <li><a href="{% url 'price_optimization' %}">SAMPLE</a></li>
+            </ul>
+        </div>
+        <div class="base-header-container-right">
+            <div class="base-language">
+                <p>ENG</p>
+            </div>
+            <div class="base-logo-github">
+                <a href="https://github.com/AMN-D/ecommerce_price_optimisation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="54" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.68c-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.5 2.37 1.07 2.95.82.1-.65.35-1.08.64-1.33-2.24-.25-4.6-1.12-4.6-4.99 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.28.1-2.66 0 0 .85-.27 2.78 1.03.81-.22 1.68-.33 2.54-.33s1.73.11 2.54.33c1.93-1.3 2.78-1.03 2.78-1.03.56 1.38.21 2.41.1 2.66.64.69 1.03 1.6 1.03 2.7 0 3.88-2.36 4.74-4.6 4.99.36.31.68.93.68 1.87v2.78c0 .26.18.57.69.47A10 10 0 0012 2z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
     </header>
     {% endblock %}
 
