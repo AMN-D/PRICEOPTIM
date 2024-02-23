@@ -27,7 +27,8 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     border-bottom: 1px solid black;
-    background-color: var(--bg-color);
+    background-color: rgba(226, 226, 226, 0.9);
+    backdrop-filter: blur(50px);
 }
 
 .base-header-container-left {
@@ -141,7 +142,7 @@ body {
 
 .body-main-custom-abs {
     position: absolute;
-    top: 89%;
+    top: 94%;
     right: 0;
     width: 60%;
     min-height: 400px; 
@@ -182,11 +183,11 @@ body {
 
 .body-image-hr {
     position: relative;
-    width: 210px;
+    width: 130px;
     height: 2px;
     background-color: var(--neon-gold);
-    bottom: 15%;
-    left: 5%;
+    bottom: 13%;
+    left: 0%;
     transform: translateX(-50%);
     transition: box-shadow 0.3s ease;
     cursor: pointer;
@@ -199,7 +200,7 @@ body {
 .left-number,
 .right-number {
     position: absolute;
-    bottom: 12%;
+    bottom: 9%;
     transform: translateY(-50%);
     font-size: 14px;
     font-family: "Poppins", sans-serif;
@@ -214,7 +215,7 @@ body {
 }
 
 .right-number {
-    right: 15.5%;
+    right: 24%;
 }
 
 .body-container-text {
@@ -258,7 +259,7 @@ body {
 }
 
 .body-container-design {
-    margin-top: 10%;
+    margin-top: 5%;
     padding-left: 10%;
     display: flex;
 }
@@ -288,7 +289,7 @@ body {
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
-    margin-top: 5%;
+    margin-top: 0%;
     color: var(--font-color); 
 }
 
@@ -315,5 +316,6 @@ body {
 .test {
     background-color: #121212;
     margin-top: 335px;
-    height: 700px;
+    height: 200px;
 }
+
