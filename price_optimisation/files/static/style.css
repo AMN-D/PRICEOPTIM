@@ -147,6 +147,8 @@ body {
 }
 
 .body-container {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     min-height: 100px;
 }
@@ -176,11 +178,11 @@ body {
 
 .body-image-hr {
     position: relative;
-    width: 200px;
+    width: 210px;
     height: 2px;
     background-color: var(--neon-gold);
     bottom: 15%;
-    left: 3%;
+    left: 5%;
     transform: translateX(-50%);
     transition: box-shadow 0.3s ease;
     cursor: pointer;
@@ -208,5 +210,61 @@ body {
 }
 
 .right-number {
-    right: 17%;
+    right: 15.5%;
+}
+
+.body-container-text {
+    padding-left: 10%;
+    margin: 0;
+    margin-top: 10%;
+}
+
+.body-container h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 120px;
+    margin: 0;
+    display: inline-block;
+    line-height: 0.8;
+}
+
+.body-container-text-lite {
+    width: 100%;
+    padding-left: 10%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    margin: 0;
+    margin-top: 6%;
+    color: var(--neon-gold);
+}
+
+.body-container-text-desc {
+    width: 100%;
+    padding-left: 10%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    margin: 0;
+    color: var(--font-color);
+    line-height: 0;
+}
+
+.body-container-design {
+    margin-top: 10%;
+    padding-left: 10%;
+    display: flex;
+}
+
+.body-container-div-design-one,
+.body-container-div-design-two,
+.body-container-div-design-three {
+    width: 25px; 
+    height: 15px; 
+    background-color: black;
+    margin-right: 5%;
+    border-radius: 3px;
 }
