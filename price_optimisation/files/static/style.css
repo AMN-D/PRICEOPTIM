@@ -4,10 +4,13 @@
 :root {
     --bg-color: #E2E2E2;
     --font-color: black;
+    --neon-gold: #CFAA01;
 }
 
 body {
     background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
 }
 
 /* HEADER */
@@ -82,7 +85,7 @@ body {
     padding: 0;
     margin: 0;
     margin-left: auto;
-    margin-right: 5%;
+    margin-right: 8%;
 }
 
 .base-links ul  {
@@ -113,4 +116,97 @@ body {
 
 .base-links li :hover {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* BODY */
+
+.body-main {
+    margin-top: 125px;
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+}
+
+.body-main-custom {
+    display: flex;
+    position: relative;
+    min-width: 80%;
+    margin: 0 auto;
+}
+
+.body-main-custom-abs {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    min-height: 12%; 
+    z-index: 999;
+    background-color: var(--neon-gold);
+}
+
+.body-container {
+    flex: 1;
+    min-height: 100px;
+}
+
+.body-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    min-height: 100px;
+    position: relative;
+}
+
+.body-image-container {
+    background-image: url('https://i.postimg.cc/056Sp09G/Journey-Casual-Polar-Bear-1-removebg-preview.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 68%;
+    height: 80%;
+    border-bottom: 5px black solid;
+    margin-bottom: 20%;
+    border-bottom-left-radius: 5px; 
+    border-bottom-right-radius: 5px;
+}
+
+.body-image-hr {
+    position: relative;
+    width: 200px;
+    height: 2px;
+    background-color: var(--neon-gold);
+    bottom: 15%;
+    left: 3%;
+    transform: translateX(-50%);
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.body-image-hr:hover {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.3); 
+}
+
+.left-number,
+.right-number {
+    position: absolute;
+    bottom: 12%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 3px;
+}
+
+.left-number {
+    left: 16%;
+    
+}
+
+.right-number {
+    right: 17%;
 }
