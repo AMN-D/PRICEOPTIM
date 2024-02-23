@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     path('', views.homepage, name='homepage'),
-    path('actual_vs_predicted/', views.actual_vs_predicted, name='actual_vs_predicted'),
-    path('price_optimization/', views.price_optimization, name='price_optimization'),
-    path('abt/', views.about, name='about'),
+    #path('actual_vs_predicted/', views.actual_vs_predicted, name='actual_vs_predicted'),
+    #path('price_optimization/', views.price_optimization, name='price_optimization'),
+    #path('abt/', views.about, name='about'),
 ]

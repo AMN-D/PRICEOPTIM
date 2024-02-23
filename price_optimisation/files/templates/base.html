@@ -20,9 +20,9 @@
         </div>
         <div class="base-links">
             <ul>
-                <li><a href="{% url 'about' %}">ABOUT</a></li>
-                <li><a href="{% url 'price_optimization' %}">CUSTOM</a></li>
-                <li><a href="{% url 'price_optimization' %}">SAMPLE</a></li>
+                <li><a href="{% url 'homepage' %}">ABOUT</a></li>
+                <li><a href="{% url 'homepage' %}">CUSTOM</a></li>
+                <li><a href="{% url 'homepage' %}">SAMPLE</a></li>
             </ul>
         </div>
         <div class="base-header-container-right">
@@ -46,7 +46,6 @@
             <button>></button>
         </div>
         <div class="body-main-custom">
-            <div class="body-main-custom-abs"></div>
             <div class="body-container">
                 <div class="body-container-text">
                     <h1>PRIZ</h1><br>
@@ -76,7 +75,23 @@
                 <span class="right-number">02 03 04 05</span>
             </div>
         </div>
-        <div class="test"></div>
+        <div class="body-main-anal-black">
+            <div class="body-main-anal-container">
+                <div class="body-main-anal-main">
+                    <div class="body-main-anal-text">
+                        <h1>TEST YOUR</h1>
+                        <h1>MODEL</h1>
+                    </div>
+                    <div class="body-main-anal-selector">
+                        <select id="modelSelector" name="model">
+                            <option value="0">---</option>
+                            <option value="lowkey">lowkey</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="body-main-anal-abs"></div>
+            </div>
+        </div>
     </div>
     {% endblock %}
     <script src="{% static 'script.js' %}"></script>

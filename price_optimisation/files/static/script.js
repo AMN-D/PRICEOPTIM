@@ -1,3 +1,4 @@
+/*
 var currentChart = null;
 
 function reloadVisualizationDisplay() {
@@ -108,7 +109,9 @@ function showBarChart(actualData, predictedData) {
     });
     document.getElementById('visualization-btn').textContent = "Bar Chart ▼";
 }
+*/
 
+/*NEW*/ 
 let lastScrollTop = 0;
 const header = document.querySelector('.base-header');
 const headerHeight = header.offsetHeight; // Get the height of the header
@@ -128,4 +131,10 @@ window.addEventListener("scroll", function() {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 }, false);
 
-
+document.getElementById('modelSelector').addEventListener('change', function() {
+    var selectedValue = this.value; // Get the selected value
+    // Send an AJAX request to the server
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/?model=' + selectedValue, true); // Send selected value to homepage view
+    xhr.send();
+});

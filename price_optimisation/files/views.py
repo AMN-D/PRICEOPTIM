@@ -1,3 +1,13 @@
+from django.shortcuts import render, HttpResponse
+from django.template import loader
+
+def homepage(request):
+    selected_model = request.GET.get('model', '')
+    print('value selected is', selected_model)
+    template = loader.get_template('home.html')
+    return HttpResponse(template.render())
+
+'''
 import os
 import random 
 from pathlib import Path
@@ -6,16 +16,9 @@ from django.shortcuts import render, HttpResponse
 from django.template import loader
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
+import json
+from django.http import JsonResponse
 
-def perform_price_optimization():
-    BASE_DIR = Path(__file__).resolve().parent.parent
-    df = pd.read_csv(os.path.join(BASE_DIR, 'files', 'data', 'preprocessed_price_optimization_dataset.csv'))
-    loaded_model = tf.keras.models.load_model(os.path.join(BASE_DIR, 'files', 'data', 'price_optimization_model.h5'))
-    return df, loaded_model 
-
-def homepage(request):
-  template = loader.get_template('home.html')
-  return HttpResponse(template.render())
 
 def actual_vs_predicted(request):
     df, loaded_model = perform_price_optimization()
@@ -62,5 +65,32 @@ def price_optimization(request):
 def about(request):
   template = loader.get_template('about.html')
   return HttpResponse(template.render())
+
+def perform_price_optimization():
+    BASE_DIR = Path(__file__).resolve().parent.parent
+    model_name = request.POST.get('model_name')
+    if model_name == 'lowkey':
+        model_path = os.path.join(BASE_DIR, 'files', 'data', 'price_optimization_model.h5')
+    else:
+        # Handle other model names or default behavior here
+        model_path = 'default_model_path'  # Replace with appropriate default
+
+    df = pd.read_csv(os.path.join(BASE_DIR, 'files', 'data', 'preprocessed_price_optimization_dataset.csv'))
+    loaded_model = tf.keras.models.load_model(model_path)
+
+    # Render the results (e.g., using a template)
+    context = {'results': results}  # Replace 'results' with your actual results
+    html_content = render_to_string('price_optimization_results.html', context)
+    return JsonResponse({'html_content': html_content})
+    
+    
+   # BASE_DIR = Path(__file__).resolve().parent.parent
+   # df = pd.read_csv(os.path.join(BASE_DIR, 'files', 'data', 'preprocessed_price_optimization_dataset.csv'))
+   # loaded_model = tf.keras.models.load_model(os.path.join(BASE_DIR, 'files', 'data', 'price_optimization_model.h5'))
+   # return df, loaded_model 
+
+'''
+
+
 
     
