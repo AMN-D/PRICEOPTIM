@@ -317,7 +317,6 @@ body {
     height: 100vh;
     min-width: 80%;
     margin: 0 auto;
-    background-color: var(--neon-gold);
     z-index: 1;
 }
 
@@ -329,18 +328,48 @@ body {
     margin: 0;
     line-height: 0.8;
     display: inline-block;
+    color: var(--bg-color);
 }
 
 .body-main-anal-selector {
-    width: 100%;
-    padding-left: 10%;
+    width: 0;
+    padding-top: 10%;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 16px;
     margin: 0;
-    margin-top: 6%;
-    color: rebeccapurple;
+    margin-top: 0%;
+}
+
+.body-main-anal-selector select {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    padding: 14px 60px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.body-main-anal-selector:hover select {
+    background-color: var(--neon-gold);
+    color: var(--bg-color);
+}
+
+.body-main-anal-desc {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    margin: 0;;
+    color: var(--bg-color);
+    line-height: 0;
 }
 
 .body-main-anal-main {
@@ -348,13 +377,12 @@ body {
     flex-direction: column;
     min-height: 100px;
     width: 45%;
-    background-color: pink;
+    padding-left: 10%;
 }
 
 .body-main-anal-text {
-    padding-left: 10%;
     margin: 0;
-    margin-top: 10%;
+    margin-top: 12%;
 }
 
 .body-main-anal-abs {
@@ -365,7 +393,37 @@ body {
     width: 65%;
     min-height: 100px;
     position: relative;
-    background-color: fuchsia;
+    background-color: grey;
+}
+
+.body-main-anal-desc {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color: var(--bg-color); 
+}
+
+.body-main-anal-desc-expand {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 16px;
+    color: var(--bg-color); 
+    text-align: justify;
+    text-align: justify;
+    width: 80%;
+}
+
+.body-main-anal-desc-expand a {
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--neon-gold);
+    transition: color 0.3s;
+}
+
+.body-main-anal-desc-expand a:hover {
+    color: #fff; 
 }
 
 
