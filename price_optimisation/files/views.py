@@ -1,9 +1,18 @@
 from django.shortcuts import render, HttpResponse
 from django.template import loader
+from django.conf import settings
+import os
+import pandas as pd
 
 def homepage(request):
     selected_model = request.GET.get('model', '')
-    print('value selected is', selected_model)
+
+    if selected_model == '1':
+        df = pd.read_csv(os.path.join(settings.BASE_DIR, 'files', 'data', 'preprocessed_price_optimization_dataset.csv'))
+        model_path = os.path.join(settings.BASE_DIR, 'files', 'data', 'price_optimization_model.h5')
+        print('price_optimization_model:', model_path)
+        print('csv:', df)
+
     template = loader.get_template('home.html')
     return HttpResponse(template.render())
 
