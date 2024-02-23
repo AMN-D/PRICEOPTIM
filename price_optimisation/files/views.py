@@ -8,7 +8,7 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 
 def perform_price_optimization():
-    BASE_DIR = Path(__file__).resolve().parent.parent  # Get project root
+    BASE_DIR = Path(__file__).resolve().parent.parent
     df = pd.read_csv(os.path.join(BASE_DIR, 'files', 'data', 'preprocessed_price_optimization_dataset.csv'))
     loaded_model = tf.keras.models.load_model(os.path.join(BASE_DIR, 'files', 'data', 'price_optimization_model.h5'))
     return df, loaded_model 

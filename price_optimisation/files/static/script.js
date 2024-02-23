@@ -109,4 +109,3 @@ function showBarChart(actualData, predictedData) {
     document.getElementById('visualization-btn').textContent = "Bar Chart ▼";
 }
 
-
