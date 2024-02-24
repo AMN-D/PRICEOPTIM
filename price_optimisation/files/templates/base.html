@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-
     {% block head %}
     <header class="base-header">
         <div class="base-header-container-left">
@@ -43,7 +42,7 @@
     {% block start %}
     <div class="body-main">
         <div class="body-main-scroll">
-            <button>></button>
+            <button id="scrollButton">></button>
         </div>
         <div class="body-main-custom">
             <div class="body-container">
@@ -83,7 +82,7 @@
                         <h1>MODEL</h1>
                     </div>
                     <div class="body-main-anal-selector">
-                        <select id="modelSelector" name="model">
+                        <select id="modelSelector" name="model" onchange="printSelectedValue('{{actual_data}}','{{predicted_data}}')">
                             <option value="0">---</option>
                             <option value="1">LOWKEY</option>
                         </select>
@@ -102,10 +101,11 @@
                     <div class="body-main-anal-canvas">
                         <canvas id="plotCanvas"></canvas>
                         <div class="body-main-anal-canvas-wrapper">
-                            <select id="visualSelector" name="model" onchange="printSelectedValue(`{{ actual_data }}`, `{{ predicted_data }}`)">
+                            <select id="visualSelector" name="model" onchange="printSelectedValue('{{actual_data}}','{{predicted_data}}')">
                                 <option value="0">---</option>
                                 <option value="1">SCATTERPLOT</option>
                                 <option value="2">LINEPLOT</option>
+                                <option value="3">BARCHART</option>
                             </select>
                         </div>
                     </div>

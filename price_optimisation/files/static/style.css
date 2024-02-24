@@ -422,22 +422,28 @@ body {
 }
 
 .body-main-anal-canvas {
-    width: 100%;
+    width: 700px;
+    height: 620px;
     margin-top: 10%;
-    position: relative;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+.body-main-anal-canvas:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .body-main-anal-canvas canvas {
-    width: 100%;
     border-radius: 15px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 15px;
+    padding-bottom: 0;
 }
 
 .body-main-anal-canvas-wrapper {
     position: absolute;
-    top: 10px; 
-    right: -15px;
+    top: 15px; 
+    right: 15px;
     z-index: 1;
 }
 
@@ -448,7 +454,7 @@ body {
     font-size: 16px;
     padding: 10px 30px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: #262626;
     color: var(--font-color);
     cursor: pointer;
