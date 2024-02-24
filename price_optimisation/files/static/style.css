@@ -3,7 +3,7 @@
 
 :root {
     --bg-color: #E2E2E2;
-    --font-color: black;
+    --font-color: #121212;
     --neon-gold: #CFAA01;
 }
 
@@ -475,4 +475,90 @@ body {
     background-color: var(--neon-gold);
     width: 480px;
     height: 70px;
+}
+
+footer {
+    bottom: 0;
+    left: 0;
+    height: 110px;
+    width: 100%;
+    padding-top: 10px;
+    margin: 0;
+    background-color: var(--neon-gold);
+}
+
+.foot-main {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 10%;
+    width: 80%;
+}
+
+.foot-main-text {
+    padding-top: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.foot-main-text h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: 800;
+    color: var(--font-color);
+    letter-spacing: 1px;
+}
+
+.foot-main-text h1 svg {
+    margin-right: 10px;
+}
+
+.foot-main-text p {
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    color: var(--font-color);
+    padding-left: 8px;
+    line-height: 20px;
+}
+
+.foot-main-text a {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.foot-main-icons {
+    padding-top: 2%;
+    right: 0; 
+}
+
+.foot-main-icons a {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.foot-main-icons a svg {
+    width: 50px; 
+    height: auto;
+    margin-left: 10px;
+    transition: transform 0.3s ease; 
+}
+
+.foot-main-icons a:hover svg {
+    transform: scale(1.05); 
+}
+
+.foot-main-text svg {
+    fill: transparent; 
+    transition: fill 0.3s ease; 
+}
+
+.foot-main-text:hover svg {
+    fill: #DB6A6C;
 }
