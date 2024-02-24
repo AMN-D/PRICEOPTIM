@@ -28,3 +28,17 @@ scrollButton.addEventListener("click", function() {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const sampleLink = document.querySelector('a[href="#"]');
+    const offset = 700;
+
+    sampleLink.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the default link behavior
+        const targetPosition = this.parentElement.offsetTop + offset;
+        window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+        });
+    });
+});
+
