@@ -1,20 +1,19 @@
 let lastScrollTop = 0;
 const header = document.querySelector('.base-header');
-const headerHeight = header.offsetHeight; // Get the height of the header
-const scrollThreshold = 100; // Adjust this value to set the scroll threshold
+const headerHeight = header.offsetHeight;
+const scrollThreshold = 200; 
 
-window.addEventListener("scroll", function() {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScroll > lastScrollTop && currentScroll > scrollThreshold) {
-        // Scroll down and below the threshold, hide the header
-        header.style.transform = "translateY(-100%)";
-        header.style.transition = "transform 0.3s ease"; // Add animation
-    } else {
-        // Scroll up or not yet reached the threshold, show the header
-        header.style.transform = "translateY(0)";
-        header.style.transition = "transform 0.3s ease"; // Add animation
-    }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+window.addEventListener("scroll", function () {
+  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  if (currentScroll > lastScrollTop && currentScroll > scrollThreshold) {
+    header.style.transform = `translateY(-${headerHeight}px)`;
+    header.style.transition = "transform 0.3s ease"; 
+  } else if (currentScroll < lastScrollTop && currentScroll < scrollThreshold - headerHeight) {
+    header.style.transform = "translateY(0)";
+    header.style.transition = "transform 0.3s ease"; 
+  }
+
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 }, false);
 
 const scrollButton = document.getElementById("scrollButton");
