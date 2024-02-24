@@ -293,7 +293,7 @@ body {
     font-weight: 300;
     font-size: 24px;
     outline: none;
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 .body-main-anal-black {
@@ -464,4 +464,15 @@ body {
 .body-main-anal-canvas-wrapper:hover select {
     background-color: var(--neon-gold);
     color: var(--bg-color);
+}
+
+.body-main-custom-abs {
+    position: absolute;
+    bottom: 55.2%;
+    left: 68%; 
+    transform: translateX(-50%); 
+    display: block;
+    background-color: var(--neon-gold);
+    width: 480px;
+    height: 70px;
 }
