@@ -98,12 +98,25 @@
                         <a href="https://github.com/amn-d" target="_blank"> @AMN-D</a>
                     </div>
                 </div>
-                <div class="body-main-anal-abs"></div>
+                <div class="body-main-anal-abs">
+                    <div class="body-main-anal-canvas">
+                        <canvas id="plotCanvas"></canvas>
+                        <div class="body-main-anal-canvas-wrapper">
+                            <select id="visualSelector" name="model" onchange="printSelectedValue(`{{ actual_data }}`, `{{ predicted_data }}`)">
+                                <option value="0">---</option>
+                                <option value="1">SCATTERPLOT</option>
+                                <option value="2">LINEPLOT</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static 'script.js' %}"></script>
+    <script src="{% static 'chart.js' %}"></script>
 </body>
 <footer>
     {% block footer %}

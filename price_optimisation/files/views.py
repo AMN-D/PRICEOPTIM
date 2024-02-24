@@ -1,8 +1,10 @@
 from django.shortcuts import render, HttpResponse
-from django.template import loader
 from django.conf import settings
+from django.http import JsonResponse
 import os
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.models import load_model
 
 def homepage(request):
     selected_model = request.GET.get('model', '')
@@ -10,11 +12,28 @@ def homepage(request):
     if selected_model == '1':
         df = pd.read_csv(os.path.join(settings.BASE_DIR, 'files', 'data', 'preprocessed_price_optimization_dataset.csv'))
         model_path = os.path.join(settings.BASE_DIR, 'files', 'data', 'price_optimization_model.h5')
-        print('price_optimization_model:', model_path)
-        print('csv:', df)
 
-    template = loader.get_template('home.html')
-    return HttpResponse(template.render())
+        X = df[['product_id', 'category_id', 'brand_encoded', 'historical_price_scaled']] 
+        y = df['historical_price'] 
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+        loaded_model = load_model(model_path)
+
+        predictions = loaded_model.predict(X_test)
+        evaluation = loaded_model.evaluate(X_test, y_test)
+
+        actual_data = list(y_test) 
+        predicted_data = list(predictions.flatten()) 
+
+        context = {
+            'actual_data': actual_data,
+            'predicted_data': predicted_data,
+        }
+    else:
+        print("no actual and predicted data")
+        context = {}
+
+    return render(request, 'base.html', context)
 
 '''
 import os

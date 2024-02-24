@@ -112,6 +112,7 @@ function showBarChart(actualData, predictedData) {
 */
 
 /*NEW*/ 
+
 let lastScrollTop = 0;
 const header = document.querySelector('.base-header');
 const headerHeight = header.offsetHeight; // Get the height of the header
@@ -138,3 +139,5 @@ document.getElementById('modelSelector').addEventListener('change', function() {
     xhr.open('GET', '/?model=' + selectedValue, true); // Send selected value to homepage view
     xhr.send();
 });
+
+

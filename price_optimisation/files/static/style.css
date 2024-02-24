@@ -207,7 +207,6 @@ body {
 }
 
 .body-container-text {
-    padding-left: 10%;
     margin: 0;
     margin-top: 10%;
 }
@@ -224,7 +223,6 @@ body {
 
 .body-container-text-lite {
     width: 100%;
-    padding-left: 10%;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -236,7 +234,6 @@ body {
 
 .body-container-text-desc {
     width: 100%;
-    padding-left: 10%;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -248,7 +245,6 @@ body {
 
 .body-container-design {
     margin-top: 5%;
-    padding-left: 10%;
     display: flex;
 }
 
@@ -272,7 +268,6 @@ body {
 
 .body-container-div-num {
     width: 100%;
-    padding-left: 10%;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -393,7 +388,7 @@ body {
     width: 65%;
     min-height: 100px;
     position: relative;
-    background-color: grey;
+    margin-right: 10%;
 }
 
 .body-main-anal-desc {
@@ -412,7 +407,7 @@ body {
     color: var(--bg-color); 
     text-align: justify;
     text-align: justify;
-    width: 80%;
+    width: 85%;
 }
 
 .body-main-anal-desc-expand a {
@@ -426,7 +421,41 @@ body {
     color: #fff; 
 }
 
+.body-main-anal-canvas {
+    width: 100%;
+    margin-top: 10%;
+    position: relative;
+}
 
+.body-main-anal-canvas canvas {
+    width: 100%;
+    border-radius: 15px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+}
 
+.body-main-anal-canvas-wrapper {
+    position: absolute;
+    top: 10px; 
+    right: -15px;
+    z-index: 1;
+}
 
+.body-main-anal-canvas-wrapper select {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 8px;
+    background-color: #262626;
+    color: var(--font-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
 
+.body-main-anal-canvas-wrapper:hover select {
+    background-color: var(--neon-gold);
+    color: var(--bg-color);
+}
