@@ -139,6 +139,7 @@ body {
     position: relative;
     min-width: 80%;
     margin: 0 auto;
+    height: 100%;
 }
 
 .body-container {
@@ -563,7 +564,7 @@ footer {
 }
 
 .foot-main-text:hover svg {
-    fill: #DB6A6C;
+    fill: lightpink;
 }
 
 /* CUSTOM PAGE */
@@ -783,4 +784,11 @@ footer {
     width: 100%;
     min-height: 10px;
     background-color: lightblue;
+}
+
+.body-your-feature-checkbox {
+    width: 100%;
+    min-height: 100px;
+    height: 80%;
+    background-color: #262626;
 }

@@ -34,9 +34,7 @@
     <div class="body-your-feature">
         <div class="body-your-feature-inside">
             <div class="body-your-feature-input">
-                <div class="body-your-feature-input-main">
-                    <input class="body-your-feature-input-main-input" type="text" id="input-feature" placeholder="SAMPLE TEXT">
-                </div>
+                <div class="body-your-feature-input-main" id="feature-input-container"></div>
                 <div class="body-your-feature-input-main-eval">
                     <button class="custom-button">Evaluate</button>
                 </div>
@@ -44,19 +42,82 @@
                     <h1>YOU</h1>
                 </div>
             </div>
-            <div class="body-your-feature-selector"></div>
+            <div class="body-your-feature-selector">
+                <div class="body-your-feature-checkbox"></div>
+            </div>
         </div>
     </div>
 </div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var selectElement = document.getElementById('selectOption');
         var containerDiv = document.querySelector('.body-your-inside-csv-container');
-        var paragraph = document.createElement('p'); // Create the paragraph element
+        var inputContainerDiv = document.querySelector('.body-your-feature-input-main');
+        var paragraph = document.createElement('p'); 
+        var featureCheckboxDiv = document.querySelector('.body-your-feature-checkbox');
+        var features = {{ features|safe }};
+        var selectedFeatures = []; // Array to store selected features
+
+        function generateInputFields(selectedFeatures) {
+            var container = document.getElementById('feature-input-container');
+            // Clear the input container
+            container.innerHTML = '';
+
+            selectedFeatures.forEach(function(feature) {
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.placeholder = feature.toUpperCase().replace('_', ' '); // Assuming features are in snake_case
+
+                container.appendChild(input);
+            });
+        }
+
+        // Function to create checkbox for each feature
+        function createFeatureCheckbox(feature) {
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.value = feature;
+            checkbox.id = feature;
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    selectedFeatures.push(feature); // Push the feature, not this.value
+                } else {
+                    selectedFeatures = selectedFeatures.filter(function(item) {
+                        return item !== feature; // Remove the feature, not this.value
+                    });
+                    removeInputFields(feature);
+                }
+                generateInputFields(selectedFeatures);
+            });
+            
+            var label = document.createElement('label');
+            label.htmlFor = feature;
+            label.appendChild(document.createTextNode(feature));
+            
+            featureCheckboxDiv.appendChild(checkbox);
+            featureCheckboxDiv.appendChild(label);
+            featureCheckboxDiv.appendChild(document.createElement('br'));
+        }
+
+        // Function to remove input fields for unchecked features
+        function removeInputFields(feature) {
+            var container = document.getElementById('feature-input-container');
+            var inputs = container.querySelectorAll('input');
+            inputs.forEach(function(input) {
+                if (input.placeholder.toLowerCase().includes(feature.toLowerCase())) {
+                    input.remove();
+                }
+            });
+        }
 
         selectElement.addEventListener('change', function () {
             if (selectElement.value === '1') {
-                // Fill the table
+                // Clear the input container
+                inputContainerDiv.innerHTML = '';
+                // Generate input fields
+                generateInputFields(selectedFeatures);
+
                 if (containerDiv) {
                     var jsonData = JSON.parse('{{ json_data|escapejs }}');
                     var table = '<table border="1">';
@@ -75,18 +136,27 @@
                     table += '</table>';
                     containerDiv.innerHTML = table;
 
-                    // Remove the paragraph if it exists
                     if (containerDiv.contains(paragraph)) {
                         containerDiv.removeChild(paragraph);
                     }
                 }
-            } else if (selectElement.value === '0') {
-                // Clear the div
-                containerDiv.innerHTML = '';
 
-                // Add the paragraph
+                // Clear the feature checkbox container
+                featureCheckboxDiv.innerHTML = '';
+
+                // Create checkboxes for each feature
+                features.forEach(function(feature) {
+                    createFeatureCheckbox(feature);
+                });
+            } else if (selectElement.value === '0') {
+                // Clear the input container
+                inputContainerDiv.innerHTML = '';
+                containerDiv.innerHTML = '';
                 paragraph.textContent = 'CSV';
                 containerDiv.appendChild(paragraph);
+
+                // Clear the feature checkbox container
+                featureCheckboxDiv.innerHTML = '';
             } else {
                 console.log('Select a value');
             }

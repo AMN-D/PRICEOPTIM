@@ -40,18 +40,11 @@ def custom(request):
     y = df['historical_price'] 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    loaded_model = load_model(model_path)
-
-    predictions = loaded_model.predict(X_test)
-    evaluation = loaded_model.evaluate(X_test, y_test)
-
-    actual_data = list(y_test) 
-    predicted_data = list(predictions.flatten()) 
+    features = X.columns.tolist()
 
     context = {
-        'actual_data': actual_data,
-        'predicted_data': predicted_data,
-        'json_data': json_data
+        'json_data': json_data,
+        'features': features 
     }
 
     return render(request, 'custom.html', context)
