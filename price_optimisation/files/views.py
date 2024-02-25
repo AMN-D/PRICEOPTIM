@@ -41,10 +41,12 @@ def custom(request):
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     features = X.columns.tolist()
+    outcome = y.name
 
     context = {
+        'features': features,
+        'outcome': outcome,
         'json_data': json_data,
-        'features': features 
     }
 
     return render(request, 'custom.html', context)

@@ -43,67 +43,91 @@
                 </div>
             </div>
             <div class="body-your-feature-selector">
-                <div class="body-your-feature-checkbox"></div>
+                <div class="body-your-feature-checkbox" id="feature-checkbox-div"></div>
+                <div class="body-your-feature-outcome" id="outcome-div"></div>
             </div>
         </div>
     </div>
 </div>
 
 <script>
+
     document.addEventListener("DOMContentLoaded", function () {
         var selectElement = document.getElementById('selectOption');
+        var outcomeDiv = document.getElementById('outcome-div');
+        var featureCheckboxDiv = document.getElementById('feature-checkbox-div');
+        var inputContainerDiv = document.getElementById('feature-input-container');
         var containerDiv = document.querySelector('.body-your-inside-csv-container');
-        var inputContainerDiv = document.querySelector('.body-your-feature-input-main');
-        var paragraph = document.createElement('p'); 
-        var featureCheckboxDiv = document.querySelector('.body-your-feature-checkbox');
         var features = {{ features|safe }};
-        var selectedFeatures = []; // Array to store selected features
+        var selectedFeatures = [];
 
         function generateInputFields(selectedFeatures) {
-            var container = document.getElementById('feature-input-container');
-            // Clear the input container
-            container.innerHTML = '';
+            inputContainerDiv.innerHTML = '';
 
             selectedFeatures.forEach(function(feature) {
                 var input = document.createElement('input');
                 input.type = 'text';
-                input.placeholder = feature.toUpperCase().replace('_', ' '); // Assuming features are in snake_case
+                input.placeholder = feature.toUpperCase().replace('_', ' ');
 
-                container.appendChild(input);
+                inputContainerDiv.appendChild(input);
             });
         }
 
-        // Function to create checkbox for each feature
         function createFeatureCheckbox(feature) {
             var checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.value = feature;
             checkbox.id = feature;
+
             checkbox.addEventListener('change', function() {
                 if (this.checked) {
-                    selectedFeatures.push(feature); // Push the feature, not this.value
+                    selectedFeatures.push(this.value);
                 } else {
-                    selectedFeatures = selectedFeatures.filter(function(item) {
-                        return item !== feature; // Remove the feature, not this.value
+
+                function createFeatureCheckbox(feature) {
+                    var checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = feature;
+                    checkbox.id = feature;
+
+                    checkbox.addEventListener('change', function() {
+                        if (this.checked) {
+                            selectedFeatures.push(this.value);
+                        } else {
+                            selectedFeatures = selectedFeatures.filter(function(item) {
+                                return item !== this.value;
+                            }.bind(this)); 
+                            removeInputFields(this.value);
+                        }
+                        generateInputFields(selectedFeatures);
                     });
-                    removeInputFields(feature);
+
+                    var label = document.createElement('label');
+                    label.htmlFor = feature;
+                    label.appendChild(document.createTextNode(feature));
+
+                    featureCheckboxDiv.appendChild(checkbox);
+                    featureCheckboxDiv.appendChild(label);
+                    featureCheckboxDiv.appendChild(document.createElement('br'));
                 }
+                        selectedFeatures = selectedFeatures.filter(function(item) {
+                            return item !== this.value;
+                        }.bind(this)); 
+                        removeInputFields(this.value);
+                    }
                 generateInputFields(selectedFeatures);
             });
-            
+
             var label = document.createElement('label');
             label.htmlFor = feature;
             label.appendChild(document.createTextNode(feature));
-            
             featureCheckboxDiv.appendChild(checkbox);
             featureCheckboxDiv.appendChild(label);
             featureCheckboxDiv.appendChild(document.createElement('br'));
         }
 
-        // Function to remove input fields for unchecked features
         function removeInputFields(feature) {
-            var container = document.getElementById('feature-input-container');
-            var inputs = container.querySelectorAll('input');
+            var inputs = inputContainerDiv.querySelectorAll('input');
             inputs.forEach(function(input) {
                 if (input.placeholder.toLowerCase().includes(feature.toLowerCase())) {
                     input.remove();
@@ -113,55 +137,39 @@
 
         selectElement.addEventListener('change', function () {
             if (selectElement.value === '1') {
-                // Clear the input container
-                inputContainerDiv.innerHTML = '';
-                // Generate input fields
-                generateInputFields(selectedFeatures);
-
-                if (containerDiv) {
-                    var jsonData = JSON.parse('{{ json_data|escapejs }}');
-                    var table = '<table border="1">';
-                    table += '<tr>';
-                    for (var key in jsonData[0]) {
-                        table += '<th>' + key + '</th>';
-                    }
-                    table += '</tr>';
-                    for (var i = 0; i < jsonData.length; i++) {
-                        table += '<tr>';
-                        for (var key in jsonData[i]) {
-                            table += '<td>' + jsonData[i][key] + '</td>';
-                        }
-                        table += '</tr>';
-                    }
-                    table += '</table>';
-                    containerDiv.innerHTML = table;
-
-                    if (containerDiv.contains(paragraph)) {
-                        containerDiv.removeChild(paragraph);
-                    }
-                }
-
-                // Clear the feature checkbox container
+                var outcome = "{{ outcome }}";
+                outcomeDiv.innerHTML = outcome;
                 featureCheckboxDiv.innerHTML = '';
-
-                // Create checkboxes for each feature
                 features.forEach(function(feature) {
                     createFeatureCheckbox(feature);
                 });
+                var jsonData = JSON.parse('{{ json_data|escapejs }}');
+                var table = '<table border="1">';
+                table += '<tr>';
+                for (var key in jsonData[0]) {
+                    table += '<th>' + key + '</th>';
+                }
+                table += '</tr>';
+                for (var i = 0; i < jsonData.length; i++) {
+                    table += '<tr>';
+                    for (var key in jsonData[i]) {
+                        table += '<td>' + jsonData[i][key] + '</td>';
+                    }
+                    table += '</tr>';
+                }
+                table += '</table>';
+                containerDiv.innerHTML = table;
             } else if (selectElement.value === '0') {
-                // Clear the input container
+                outcomeDiv.innerHTML = '';
                 inputContainerDiv.innerHTML = '';
-                containerDiv.innerHTML = '';
-                paragraph.textContent = 'CSV';
-                containerDiv.appendChild(paragraph);
-
-                // Clear the feature checkbox container
                 featureCheckboxDiv.innerHTML = '';
+                containerDiv.innerHTML = '';
             } else {
                 console.log('Select a value');
             }
         });
     });
+
 </script>
 
 {% endblock %}

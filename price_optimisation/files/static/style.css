@@ -756,8 +756,17 @@ footer {
     display: flex;
     flex-direction: column;
     min-height: 700px;
-    background-color: #DB6A6C;
     width: 40%;
+    background-color: transparent;
+    border: 1px solid var(--light-black);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    margin-right: 2%;
+    transition: box-shadow 0.3s ease;
+}
+
+.body-your-feature-input:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1); 
 }
 
 .body-your-feature-selector {
@@ -774,10 +783,12 @@ footer {
 .body-your-feature-input-main {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    background-color: #E2E2E2;
+    width: 92%;
     min-height: 60%;
-    margin-top: 10%;
+    margin: 4%;
+    border: 1px solid var(--light-black);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease;
 }
 
 .body-your-feature-input-main-eval {
@@ -791,4 +802,19 @@ footer {
     min-height: 100px;
     height: 80%;
     background-color: #262626;
+}
+
+.body-your-feature-input input[type="text"] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid var(--light-black); /* Change border color */
+    border-radius: 5px;
+    width: 90%;
+    box-sizing: border-box;
+    background-color: transparent; /* Set background color to transparent */
+    color: var(--font-color); /* Set text color */
+    font-family: "Poppins", sans-serif; /* Set font family */
+    font-weight: 400; /* Set font weight */
+    font-style: normal; /* Set font style */
+    font-size: 16px; /* Set font size */
 }
