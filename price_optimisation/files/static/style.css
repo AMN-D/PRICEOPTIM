@@ -741,7 +741,7 @@ footer {
     height: 100vh;
     width: 100%;
     margin: 0;
-    background-color: #121212;
+    background-color: var(--bg-color);
 }
 
 .body-your-feature-inside {
@@ -805,16 +805,24 @@ footer {
 }
 
 .body-your-feature-input input[type="text"] {
-    margin-bottom: 10px;
-    padding: 8px;
-    border: 1px solid var(--light-black); /* Change border color */
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    padding: 12px 20px; 
+    border: 1px solid transparent; 
     border-radius: 5px;
-    width: 90%;
+    background-color: var(--light-black);
+    color: var(--bg-color); 
+    cursor: pointer;
+    margin: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box;
-    background-color: transparent; /* Set background color to transparent */
-    color: var(--font-color); /* Set text color */
-    font-family: "Poppins", sans-serif; /* Set font family */
-    font-weight: 400; /* Set font weight */
-    font-style: normal; /* Set font style */
-    font-size: 16px; /* Set font size */
+    outline: none; 
 }
+
+.body-your-feature-input input[type="text"]:hover,
+.body-your-feature-input input[type="text"]:focus {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
