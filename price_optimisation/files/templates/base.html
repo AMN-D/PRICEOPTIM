@@ -20,7 +20,7 @@
         <div class="base-links">
             <ul>
                 <li><a href="##">ABOUT</a></li>
-                <li><a href="{% url 'homepage' %}">CUSTOM</a></li>
+                <li><a href="{% url 'custom' %}">CUSTOM</a></li>
                 <li><a href="#">SAMPLE</a></li>
             </ul>
         </div>
@@ -118,8 +118,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static 'script.js' %}"></script>
     <script src="{% static 'chart.js' %}"></script>
+    {% block footer %}
     <footer>
-        {% block footer %}
         <div class="foot-main">
             <div class="foot-main-text">
                 <h1>
@@ -149,7 +149,7 @@
                 </a>
             </div>
         </div>
-        {% endblock %}
     </footer>
+    {% endblock %}
 </body>
 </html>

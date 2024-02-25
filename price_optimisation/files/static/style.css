@@ -5,6 +5,8 @@
     --bg-color: #E2E2E2;
     --font-color: #121212;
     --neon-gold: #CFAA01;
+    --neon-pink: #ff008c;
+    --light-black: #262626;
 }
 
 body {
@@ -456,7 +458,7 @@ body {
     padding: 10px 30px;
     border: none;
     border-radius: 5px;
-    background-color: #262626;
+    background-color: var(--light-black);
     color: var(--font-color);
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
@@ -562,4 +564,113 @@ footer {
 
 .foot-main-text:hover svg {
     fill: #DB6A6C;
+}
+
+/* CUSTOM PAGE */
+
+.body-your-main {
+    margin-top: 10%;
+    width: 100%;
+    height: 85%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.body-your-inside {
+    display: flex;
+    position: relative;
+    min-width: 80%;
+    margin: 0;
+    flex-direction: row;
+}
+
+.body-your-inside-text-container {
+    padding-left: 10%;
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    min-height: 100px;
+}
+
+.body-your-inside-csv-container {
+    padding-right: 10%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100px;
+    position: relative;
+}
+
+.body-your-inside-text {
+    margin-top: 6%;
+}
+
+.body-your-inside-text h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 120px;
+    margin: 0;
+    display: inline-block;
+    line-height: 0.8;
+    color: var(--font-color);
+}
+
+.body-your-inside-desc  {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    margin: 0;
+    margin-top: 6%;
+    color: var(--neon-pink);
+}
+
+.body-your-inside-desc-detail {
+    width: 70%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color: var(--font-color);
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.body-your-inside-model-selector {
+    margin-bottom: 15px;
+}
+
+.body-your-inside-model-selector select {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 16px;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--light-black);
+    color: var(--bg-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.body-your-inside-model-selector:hover select {
+    background-color: var(--neon-pink);
+    color: var(--bg-color);
+}
+
+.body-your-inside-design {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 0%;
+    color: var(--font-color); 
 }
