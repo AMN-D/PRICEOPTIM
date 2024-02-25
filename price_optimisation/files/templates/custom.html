@@ -31,13 +31,15 @@
         </div>
     </div>
 </div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var selectElement = document.getElementById('selectOption');
+        var containerDiv = document.querySelector('.body-your-inside-csv-container');
 
         selectElement.addEventListener('change', function () {
             if (selectElement.value === '1') {
-                var containerDiv = document.querySelector('.body-your-inside-csv-container');
+                // Fill the table
                 if (containerDiv) {
                     var jsonData = JSON.parse('{{ json_data|escapejs }}');
                     var table = '<table border="1">';
@@ -56,12 +58,16 @@
                     table += '</table>';
                     containerDiv.innerHTML = table;
                 }
+            } else if (selectElement.value === '0') {
+                // Clear the div
+                containerDiv.innerHTML = '';
             } else {
                 console.log('Select a value');
             }
         });
     });
 </script>
+
 {% endblock %}
 {% block footer %}
 {% endblock %}
