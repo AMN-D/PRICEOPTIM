@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block start %}
-    <div class="body-your-main">
-        <div class="body-your-main-scroll"></div>
-        <div class="body-your-inside">
-            <div class="body-your-inside-text-container">
+<div class="body-your-main">
+    <div class="body-your-main-scroll"></div>
+    <div class="body-your-inside">
+        <div class="body-your-inside-text-container">
                 <div class="body-your-inside-text">
                     <h1>PICK</h1>
                     <h1>MODEL</h1>
@@ -16,7 +16,7 @@
                     <p>Select your model, peek at the CSV preview, pick optimization features, input product details, and watch your optimization results unfold!</p>
                 </div>
                 <div class="body-your-inside-model-selector">
-                    <select>
+                    <select id="selectOption">
                         <option value="0">---</option>
                         <option value="1">LOWKEY</option>
                     </select>
@@ -25,9 +25,43 @@
                     <p>091</p>
                 </div>
             </div>
-            <div class="body-your-inside-csv-container"></div>
+            <div class="body-your-inside-csv-container">
+                <table id="csv-table"></table>
+            </div>
         </div>
     </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var selectElement = document.getElementById('selectOption');
+
+        selectElement.addEventListener('change', function () {
+            if (selectElement.value === '1') {
+                var containerDiv = document.querySelector('.body-your-inside-csv-container');
+                if (containerDiv) {
+                    var jsonData = JSON.parse('{{ json_data|escapejs }}');
+                    var table = '<table border="1">';
+                    table += '<tr>';
+                    for (var key in jsonData[0]) {
+                        table += '<th>' + key + '</th>';
+                    }
+                    table += '</tr>';
+                    for (var i = 0; i < jsonData.length; i++) {
+                        table += '<tr>';
+                        for (var key in jsonData[i]) {
+                            table += '<td>' + jsonData[i][key] + '</td>';
+                        }
+                        table += '</tr>';
+                    }
+                    table += '</table>';
+                    containerDiv.innerHTML = table;
+                }
+            } else {
+                console.log('Select a value');
+            }
+        });
+    });
+</script>
 {% endblock %}
 {% block footer %}
 {% endblock %}

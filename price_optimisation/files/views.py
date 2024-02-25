@@ -33,6 +33,7 @@ def homepage(request):
 def custom(request):
 
     df = pd.read_csv(os.path.join(settings.BASE_DIR, 'files', 'data', 'preprocessed_price_optimization_dataset.csv'))
+    json_data = df.to_json(orient='records')
     model_path = os.path.join(settings.BASE_DIR, 'files', 'data', 'price_optimization_model.h5')
 
     X = df[['product_id', 'category_id', 'brand_encoded', 'historical_price_scaled']] 
@@ -50,6 +51,7 @@ def custom(request):
     context = {
         'actual_data': actual_data,
         'predicted_data': predicted_data,
+        'json_data': json_data
     }
 
     return render(request, 'custom.html', context)
