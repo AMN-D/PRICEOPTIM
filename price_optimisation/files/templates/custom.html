@@ -27,15 +27,32 @@
             </div>
             <div class="body-your-inside-csv-container">
                 <table id="csv-table"></table>
+                <p>CSV</p>
             </div>
         </div>
     </div>
+    <div class="body-your-feature">
+        <div class="body-your-feature-inside">
+            <div class="body-your-feature-input">
+                <div class="body-your-feature-input-main">
+                    <input class="body-your-feature-input-main-input" type="text" id="input-feature" placeholder="SAMPLE TEXT">
+                </div>
+                <div class="body-your-feature-input-main-eval">
+                    <button class="custom-button">Evaluate</button>
+                </div>
+                <div class="body-your-feature-design">
+                    <h1>YOU</h1>
+                </div>
+            </div>
+            <div class="body-your-feature-selector"></div>
+        </div>
+    </div>
 </div>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var selectElement = document.getElementById('selectOption');
         var containerDiv = document.querySelector('.body-your-inside-csv-container');
+        var paragraph = document.createElement('p'); // Create the paragraph element
 
         selectElement.addEventListener('change', function () {
             if (selectElement.value === '1') {
@@ -57,10 +74,19 @@
                     }
                     table += '</table>';
                     containerDiv.innerHTML = table;
+
+                    // Remove the paragraph if it exists
+                    if (containerDiv.contains(paragraph)) {
+                        containerDiv.removeChild(paragraph);
+                    }
                 }
             } else if (selectElement.value === '0') {
                 // Clear the div
                 containerDiv.innerHTML = '';
+
+                // Add the paragraph
+                paragraph.textContent = 'CSV';
+                containerDiv.appendChild(paragraph);
             } else {
                 console.log('Select a value');
             }

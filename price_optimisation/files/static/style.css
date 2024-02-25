@@ -584,6 +584,7 @@ footer {
     min-width: 80%;
     margin: 0;
     flex-direction: row;
+    margin-bottom: 30px;
 }
 
 .body-your-inside-text-container {
@@ -718,4 +719,68 @@ footer {
 .body-your-inside-csv-container table td:hover {
     background-color: var(--neon-pink);
     color: var(--bg-color); 
+}
+
+.body-your-inside-csv-container p {
+    position: absolute;
+    bottom: 0;
+    right: 0; 
+    margin: 10px; 
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+}
+
+.body-your-feature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-color: #121212;
+}
+
+.body-your-feature-inside {
+    display: flex;
+    position: relative;
+    min-width: 80%;
+    margin: 0;
+    flex-direction: row;
+}
+
+.body-your-feature-input {
+    display: flex;
+    flex-direction: column;
+    min-height: 700px;
+    background-color: #DB6A6C;
+    width: 40%;
+}
+
+.body-your-feature-selector {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 10px;
+    position: relative;
+    background-color: #CFAA01;
+}
+
+.body-your-feature-input-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #E2E2E2;
+    min-height: 60%;
+    margin-top: 10%;
+}
+
+.body-your-feature-input-main-eval {
+    width: 100%;
+    min-height: 10px;
+    background-color: lightblue;
 }
