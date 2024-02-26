@@ -34,15 +34,27 @@
     <div class="body-your-feature">
         <div class="body-your-feature-inside">
             <div class="body-your-feature-input">
-                <div class="body-your-feature-input-main" id="feature-input-container"></div>
+                <div class="body-your-feature-input-text">
+                    <h1>Finding the<br> 
+                        Ideal Price for Your <br>
+                        Product</h1>
+                </div>
+                <div class="body-your-feature-input-paragraph">
+                    <p>DPO for Business: Precision Pricing Made Simple. Discover the Ideal Price for Your Product or Service, Regardless of Your Business Size. Maximize Profitability with Confidence</p>
+                </div>
                 <div class="body-your-feature-input-main-eval">
                     <button class="custom-button">Evaluate</button>
+                    <div class="line-old"></div>
+                    <div class="line"></div>
+                    <canvas class="small-canvas-old"></canvas>
+                    <canvas class="small-canvas"></canvas>
                 </div>
-                <div class="body-your-feature-design">
-                    <h1>YOU</h1>
+                <div class="body-your-inside-design-input-main">
+                    <p>092</p>
                 </div>
             </div>
             <div class="body-your-feature-selector">
+                <div class="body-your-feature-input-main" id="feature-input-container"></div>
                 <div class="body-your-feature-checkbox" id="feature-checkbox-div"></div>
                 <div class="body-your-feature-outcome" id="outcome-div"></div>
             </div>
@@ -171,6 +183,25 @@
     });
 
 </script>
+
+<script>
+    document.querySelector('.custom-button').addEventListener('click', function() {
+        const line = document.querySelector('.line');
+        line.style.animation = 'fillLine 2s forwards'; 
+    
+        setTimeout(function() {
+            const canvas = document.querySelector('.small-canvas');
+            canvas.style.width = '4vw'; 
+            canvas.style.animation = 'fillCanvas 2s forwards'; // Add animation to fill canvas
+            canvas.style.backgroundColor = 'var(--neon-pink)'; 
+            canvas.textContent = 'PASS'; 
+    
+            // Change button color to neon pink
+            const button = document.querySelector('.custom-button');
+            button.style.backgroundColor = 'var(--neon-pink)';
+        }, 1000); 
+    });
+</script>    
 
 {% endblock %}
 {% block footer %}

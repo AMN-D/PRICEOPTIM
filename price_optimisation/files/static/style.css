@@ -577,6 +577,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    border-bottom: 1px solid var(--light-black);
 }
 
 .body-your-inside {
@@ -666,6 +667,7 @@ footer {
     color: var(--font-color); 
 }
 
+
 .body-your-inside-csv-container {
     display: flex;
     flex-direction: column;
@@ -736,93 +738,144 @@ footer {
 .body-your-feature {
     display: flex;
     justify-content: center;
-    align-items: center;
-    position: relative;
+    background-color: var(--font-color);
     height: 100vh;
-    width: 100%;
-    margin: 0;
-    background-color: var(--bg-color);
 }
 
 .body-your-feature-inside {
     display: flex;
-    position: relative;
-    min-width: 80%;
-    margin: 0;
-    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 10%;
+    min-height: 200px;
 }
 
 .body-your-feature-input {
     display: flex;
     flex-direction: column;
-    min-height: 700px;
-    width: 40%;
-    background-color: transparent;
-    border: 1px solid var(--light-black);
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    margin-right: 2%;
-    transition: box-shadow 0.3s ease;
-}
-
-.body-your-feature-input:hover {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1); 
+    width: 60%;
 }
 
 .body-your-feature-selector {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 10px;
-    position: relative;
-    background-color: #CFAA01;
+    min-height: 200px;
 }
 
-.body-your-feature-input-main {
-    display: flex;
-    flex-direction: column;
-    width: 92%;
-    min-height: 60%;
-    margin: 4%;
-    border: 1px solid var(--light-black);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.3s ease;
+.body-your-feature-input-text h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 70px;
+    line-height: 0.9;
+    color: var(--bg-color);
+    margin-top: 20vh;
+}
+
+.body-your-feature-input-paragraph {
+    width: 75%;
+    margin-bottom: 5vh;
+}
+
+.body-your-feature-input-paragraph p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 16px;
+    color: var(--bg-color);
+    text-align: justify;
+    margin: 0;
+    line-height: 1.5;
 }
 
 .body-your-feature-input-main-eval {
-    width: 100%;
-    min-height: 10px;
-    background-color: lightblue;
+    position: relative;
 }
 
-.body-your-feature-checkbox {
-    width: 100%;
-    min-height: 100px;
-    height: 80%;
-    background-color: #262626;
+.line-old {
+    position: absolute;
+    top: 50%;
+    left: 20.5vh;
+    height: 2px;
+    background-color: var(--light-black);
+    width: 10rem;
+    transition: width 0.5s ease;
+    width: 20vh;
 }
 
-.body-your-feature-input input[type="text"] {
+.line {
+    position: absolute;
+    top: 50%;
+    left: 20.5vh;
+    height: 2px;
+    background-color: var(--neon-pink);
+    width: 0;
+}
+
+.small-canvas-old {
+    position: absolute;
+    top: 1vh;
+    right: 50vh;
+    width: 4vw;
+    height: 5vh;
+    background-color: var(--light-black);
+    border-radius: 5px;
+}
+
+.small-canvas {
+    position: absolute;
+    top: 1vh;
+    right: 50vh;
+    width: 0; /* Initially the canvas has no width */
+    height: 5vh; 
+    background-color: var(--light-black); 
+    border-radius: 5px; 
+    overflow: hidden; /* Ensure the overflow is hidden as the width increases */
+    transition: width 2s; /* Smooth transition for the animation */
+}
+
+@keyframes fillLine {
+    from {
+        width: 0;
+    }
+    to {
+        width: 10rem;
+    }
+}
+
+@keyframes fillCanvas {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 4vw;
+    }
+}
+
+
+.body-your-feature-input-main-eval button.custom-button {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 16px;
-    padding: 12px 20px; 
-    border: 1px solid transparent; 
+    padding: 15px 40px;
+    border: none;
     border-radius: 5px;
     background-color: var(--light-black);
-    color: var(--bg-color); 
+    color: var(--bg-color);
     cursor: pointer;
-    margin: 10px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-sizing: border-box;
-    outline: none; 
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.body-your-feature-input input[type="text"]:hover,
-.body-your-feature-input input[type="text"]:focus {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+.body-your-feature-input-main-eval button.custom-button:hover {
+    background-color: var(--neon-pink);
+    color: var(--bg-color);
 }
 
+.body-your-inside-design-input-main {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    margin-top: 5vh;
+    color: var(--bg-color); 
+}
