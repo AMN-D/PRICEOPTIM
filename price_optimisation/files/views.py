@@ -40,10 +40,6 @@ def custom(request):
     y = df['historical_price'] 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-    if request.method == 'POST':
-        pid=request.POST.get('input_0')
-        print('hello this is me ',pid)
-
     loaded_model = load_model(model_path)
 
     predictions = loaded_model.predict(X_test)

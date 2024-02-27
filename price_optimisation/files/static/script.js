@@ -16,17 +16,6 @@ window.addEventListener("scroll", function () {
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 }, false);
 
-const scrollButton = document.getElementById("scrollButton");
-scrollButton.addEventListener("click", function() {
-  const targetDiv = document.querySelector(".body-main-anal-black");
-  const offset = 150; 
-  const targetPosition = targetDiv.offsetTop + offset;
-  window.scrollTo({
-    top: targetPosition,
-    behavior: "smooth"
-  });
-});
-
 document.addEventListener("DOMContentLoaded", function() {
     const sampleLink = document.querySelector('a[href="#"]');
     const offset = 695;

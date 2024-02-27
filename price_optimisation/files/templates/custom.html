@@ -43,7 +43,7 @@
                     <p>DPO for Business: Precision Pricing Made Simple. Discover the Ideal Price for Your Product or Service, Regardless of Your Business Size. Maximize Profitability with Confidence</p>
                 </div>
                 <div class="body-your-feature-input-main-eval">
-                    <button class="custom-button" onclick="sendData()">Evaluate</button>
+                    <button class="custom-button">Evaluate</button>
                     <div class="line-old"></div>
                     <div class="line"></div>
                     <canvas class="small-canvas-old"></canvas>
@@ -62,9 +62,7 @@
                     </div>
                     <div class="body-your-feature-selector-inside-inside">
                         <div class="body-your-feature-checkbox" id="feature-checkbox-div"></div>
-                        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                        <div class="body-your-feature-input-main" id="feature-input-container">
-                        </div>
+                        <div class="body-your-feature-input-main" id="feature-input-container"></div>
                     </div>
                     <div class="body-your-feature-inside-desc">
                         <p>Rest assured, your data remains transient and never leaves your device. Your privacy is paramount in our approach.<br>
@@ -89,7 +87,6 @@
 </div>
 
 <script>
-
     document.addEventListener("DOMContentLoaded", function () {
         var selectElement = document.getElementById('selectOption');
         var outcomeDiv = document.getElementById('outcome-div');
@@ -120,6 +117,43 @@
 
                 inputContainerDiv.appendChild(input);
             });
+        }
+
+        function retrieveInputFieldValues() {
+            var inputValues = {};
+            var inputFields = document.querySelectorAll('input[type="number"]');
+            
+            inputFields.forEach(function(input) {
+                var inputId = input.id.split('_')[1];
+                inputValues[inputId] = input.value;
+            });
+            
+            return inputValues;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var evaluateButton = document.querySelector('.custom-button');
+
+            evaluateButton.addEventListener('click', function() {
+                var inputValues = retrieveInputFieldValues();
+                console.log(inputValues); // Or do something else with the values
+            });
+        });
+
+        function collectInputValues(selectedFeatures) {
+            var inputValues = {}; // Dictionary to store input values
+
+            selectedFeatures.forEach(function(feature, index) {
+                var inputId = 'input_' + index;
+                var inputElement = document.getElementById(inputId);
+
+                // Check if input element exists and has a value
+                if (inputElement && inputElement.value) {
+                    inputValues[feature] = inputElement.value;
+                }
+            });
+
+            console.log(inputValues);
         }
 
 
@@ -282,26 +316,7 @@
 
 </script>
 
-<script>
-function sendData() {
-    var inputValues = [];
-    var inputs = document.querySelectorAll('input[type="number"]');
-    inputs.forEach(function(input) {
-        inputValues.push(input.value);
-    });
 
-    // Send input values to Django view using AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "{% url 'custom' %}", true);
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log(xhr.responseText); // Print response from Django view
-        }
-    };
-    xhr.send(JSON.stringify({inputValues: inputValues}));
-}
-</script>
 
 {% endblock %}
 {% block footer %}

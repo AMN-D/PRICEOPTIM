@@ -115,6 +115,18 @@
             </div>
         </div>
     </div>
+    <script>
+        const scrollButton = document.getElementById("scrollButton");
+        scrollButton.addEventListener("click", function() {
+            const targetDiv = document.querySelector(".body-main-anal-black");
+            const offset = 150; 
+            const targetPosition = targetDiv.offsetTop + offset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+            });
+        });
+    </script>
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static 'script.js' %}"></script>
