@@ -43,7 +43,7 @@
                     <p>DPO for Business: Precision Pricing Made Simple. Discover the Ideal Price for Your Product or Service, Regardless of Your Business Size. Maximize Profitability with Confidence</p>
                 </div>
                 <div class="body-your-feature-input-main-eval">
-                    <button class="custom-button" onclick="retrieveInputFieldValues()">Evaluate</button>
+                    <button class="custom-button" onclick="retrieveInputFieldValuesAndSendData()">Evaluate</button>
                     <div class="line-old"></div>
                     <div class="line"></div>
                     <canvas class="small-canvas-old"></canvas>
@@ -88,16 +88,38 @@
 
 <script>
 
-    function retrieveInputFieldValues() {
-        var inputFields = document.querySelectorAll('input[type="number"]');
-        
-        inputFields.forEach(function(input, index) {
-            var inputId = 'input_' + index;
-            var inputName = input.getAttribute('name');
-            console.log(inputId + ' (' + inputName + '):', input.value);
+    function sendDataToDjango(inputData) {
+        fetch('/custom/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(inputData)
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('sendDataToDjango')
+                // Handle success response if needed
+            } else {
+                // Handle error response if needed
+            }
+        })
+        .catch(error => {
+            console.error('Error sending data to Django:', error);
         });
     }
 
+    function retrieveInputFieldValuesAndSendData() {
+        var inputFields = document.querySelectorAll('input[type="number"]');
+        var inputData = {};
+
+        inputFields.forEach(function(input, index) {
+            var inputName = input.getAttribute('name');
+            inputData[inputName] = input.value;
+        });
+
+        sendDataToDjango(inputData);
+    }
 
     document.addEventListener("DOMContentLoaded", function () {
         var selectElement = document.getElementById('selectOption');
@@ -114,7 +136,7 @@
             selectedFeatures.forEach(function(feature, index) {
                 var input = document.createElement('input');
                 var inputId = 'input_' + index; // Unique ID for each input field
-                var inputName = feature.toUpperCase().replace('_', ' '); // Name derived from placeholder
+                var inputName = feature; // Name derived from placeholder
                 input.id = inputId;
                 input.name = inputName; // Set the name attribute
                 input.type = 'number';

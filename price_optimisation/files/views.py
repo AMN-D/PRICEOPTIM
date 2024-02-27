@@ -6,6 +6,7 @@ import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import load_model
+from django.views.decorators.csrf import csrf_exempt
 
 def homepage(request):
 
@@ -31,6 +32,7 @@ def homepage(request):
 
     return render(request, 'base.html', context)
 
+@csrf_exempt
 def custom(request):
 
     df = pd.read_csv(os.path.join(settings.BASE_DIR, 'files', 'data', 'preprocessed_price_optimization_dataset.csv'))
@@ -51,6 +53,30 @@ def custom(request):
     
     features = X.columns.tolist()
     outcome = y.name
+
+    if request.method == 'POST':
+        try:
+            received_dict = {}
+            received_data = json.loads(request.body.decode('utf-8'))
+            for key, value in received_data.items():
+                received_dict[key] = value
+            print("Received dictionary:", received_dict)
+
+            for key, value in received_dict.items():
+                if key in X.columns:
+                    X[key] = pd.to_numeric(value)
+
+            print(X)
+
+            predictions = loaded_model.predict(X)
+            evaluation = loaded_model.evaluate(X, y_test)
+            predicted_data = predictions.flatten().tolist()
+
+            print(predicted_data)
+
+            return JsonResponse({'message': 'Received data successfully'}, status=200)
+        except json.JSONDecodeError as e:
+            return JsonResponse({'error': 'Failed to decode JSON data'}, status=400)
 
     context = {
         'features': features,
