@@ -922,21 +922,24 @@ footer {
 
 .body-your-feature-checkbox {
     width: 40%;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     border: 1px solid var(--light-black); 
     margin-left: 2vw;
+    height: 13vh;
 }
 
 .body-your-feature-input-main {
     width: 41.5%;
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     border: 1px solid var(--light-black); 
     margin-left: 0.5vw;
+    height: 13vh;
 }
 
 .body-your-feature-input-main::-webkit-scrollbar {
-    width: 8px; 
-    height: 8px; 
+    display: none;
 }
 
 .body-your-feature-input-main::-webkit-scrollbar-thumb {
@@ -945,8 +948,7 @@ footer {
 }
 
 .body-your-feature-checkbox::-webkit-scrollbar {
-    width: 8px; 
-    height: 8px; 
+    display: none;
 }
 
 .body-your-feature-checkbox::-webkit-scrollbar-thumb {
@@ -992,42 +994,35 @@ footer {
 }
 
 /* Hide the increment and decrement buttons for number input fields */
-.body-your-feature-input-main input[type="number"]::-webkit-inner-spin-button,
-.body-your-feature-input-main input[type="number"]::-webkit-outer-spin-button {
+.custom-input[type="number"]::-webkit-inner-spin-button,
+.custom-input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.body-your-feature-input-main input[type="number"] {
-    -moz-appearance: textfield; 
-}
 
-.body-your-feature-input-main input[type="number"]:focus {
-    outline: none;
-}
-
-.body-your-feature-input-main input[type="text"] {
+.custom-input[type="number"] {
   border: none;
   border-bottom: 2px solid var(--light-black);
-  background-color: transparent;
+  background-color: var(--bg-color);
   font-size: 0.5rem; 
   outline: none;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 0.8rem; 
+  font-size: 0.85rem; 
   transition: border-color 0.3s ease;
 }
 
-/* Placeholder styling (unchanged) */
-.body-your-feature-input-main input::placeholder {
-  color: var(--light-black);
-}
+.custom-input::placeholder {
+    color: var(--light-black);
+    font-weight: 500;
+    font-size: 0.85rem;
+}  
 
-/* Hover state for input (unchanged) */
-.body-your-feature-input-main input:hover {
+.custom-input:hover,
+.custom-input:focus {
   border-color: var(--neon-pink);
 }
-
 
 .body-your-feature-inside-desc {
     margin-left: 2vw;

@@ -135,15 +135,14 @@
 
             selectedFeatures.forEach(function(feature, index) {
                 var input = document.createElement('input');
-                var inputId = 'input_' + index; // Unique ID for each input field
-                var inputName = feature; // Name derived from placeholder
+                var inputId = 'input_' + index; 
+                var inputName = feature; 
                 input.id = inputId;
-                input.name = inputName; // Set the name attribute
+                input.name = inputName; 
                 input.type = 'number';
-                input.placeholder = inputName; // Set the placeholder
+                input.placeholder = inputName.toUpperCase(); 
                 input.required = true; 
-
-                input.style.backgroundColor = 'transparent'; 
+                input.classList.add('custom-input');
 
                 input.setAttribute('inputMode', 'numeric');
 
@@ -152,6 +151,13 @@
                 });
 
                 inputContainerDiv.appendChild(input);
+            });
+        }
+
+        function removeInputFields(featureToRemove) {
+            var inputFieldsToRemove = document.querySelectorAll('input[name="' + featureToRemove + '"]');
+            inputFieldsToRemove.forEach(function(inputField) {
+                inputField.parentNode.removeChild(inputField);
             });
         }
 
