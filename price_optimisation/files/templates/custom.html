@@ -43,7 +43,7 @@
                     <p>DPO for Business: Precision Pricing Made Simple. Discover the Ideal Price for Your Product or Service, Regardless of Your Business Size. Maximize Profitability with Confidence</p>
                 </div>
                 <div class="body-your-feature-input-main-eval">
-                    <button class="custom-button">Evaluate</button>
+                    <button class="custom-button" onclick="sendData()">Evaluate</button>
                     <div class="line-old"></div>
                     <div class="line"></div>
                     <canvas class="small-canvas-old"></canvas>
@@ -54,9 +54,35 @@
                 </div>
             </div>
             <div class="body-your-feature-selector">
-                <div class="body-your-feature-input-main" id="feature-input-container"></div>
-                <div class="body-your-feature-checkbox" id="feature-checkbox-div"></div>
-                <div class="body-your-feature-outcome" id="outcome-div"></div>
+                <div class="body-your-feature-selector-inside">
+                    <div class="body-your-feature-selector-inside-text">
+                        <h1>the CostOptim<br>
+                            project
+                        </h1>
+                    </div>
+                    <div class="body-your-feature-selector-inside-inside">
+                        <div class="body-your-feature-checkbox" id="feature-checkbox-div"></div>
+                        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                        <div class="body-your-feature-input-main" id="feature-input-container">
+                        </div>
+                    </div>
+                    <div class="body-your-feature-inside-desc">
+                        <p>Rest assured, your data remains transient and never leaves your device. Your privacy is paramount in our approach.<br>
+                        For optimal results, ensure precision in your input. Accurate data fuels our project's efficacy and unlocks its full potential.<br>
+                        Unlock the power of numerical inputs! Our system exclusively accepts numerical data, easily derived from the provided CSV.</p>
+                    </div>
+                    <div class="outcome-div-cover-bottom">
+                        <div class="outcome-div-cover">
+                            <div class="body-your-feature-outcome-desc">
+                                <p>We are going to predict this value</p>
+                            </div>
+                            <div class="body-your-feature-outcome" id="outcome-div"></div>
+                        </div>
+                        <div>
+                            <h1 class="logo-inside">DNN</h1>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -76,14 +102,26 @@
         function generateInputFields(selectedFeatures) {
             inputContainerDiv.innerHTML = '';
 
-            selectedFeatures.forEach(function(feature) {
+            selectedFeatures.forEach(function(feature, index) {
                 var input = document.createElement('input');
-                input.type = 'text';
+                var inputId = 'input_' + index; // Unique ID for each input field
+                input.id = inputId;
+                input.type = 'number';
                 input.placeholder = feature.toUpperCase().replace('_', ' ');
+                input.required = true; 
+
+                input.style.backgroundColor = 'transparent'; 
+
+                input.setAttribute('inputMode', 'numeric');
+
+                input.addEventListener('input', function() {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
 
                 inputContainerDiv.appendChild(input);
             });
         }
+
 
         function createFeatureCheckbox(feature) {
             var checkbox = document.createElement('input');
@@ -186,22 +224,84 @@
 
 <script>
     document.querySelector('.custom-button').addEventListener('click', function() {
-        const line = document.querySelector('.line');
-        line.style.animation = 'fillLine 2s forwards'; 
-    
-        setTimeout(function() {
-            const canvas = document.querySelector('.small-canvas');
-            canvas.style.width = '4vw'; 
-            canvas.style.animation = 'fillCanvas 2s forwards'; // Add animation to fill canvas
-            canvas.style.backgroundColor = 'var(--neon-pink)'; 
-            canvas.textContent = 'PASS'; 
-    
-            // Change button color to neon pink
-            const button = document.querySelector('.custom-button');
-            button.style.backgroundColor = 'var(--neon-pink)';
-        }, 1000); 
+        // Check if there are any input fields
+        var inputFields = document.querySelectorAll('#feature-input-container input');
+        if (inputFields.length === 0) {
+            alert("Please select a feature to proceed.");
+            return;
+        }
+
+        // Check if all input fields are filled
+        var allFilled = true;
+        inputFields.forEach(function(input) {
+            if (!input.value.trim()) {
+                allFilled = false;
+                return; // Exit loop early if any input is empty
+            }
+        });
+
+        if (allFilled) {
+            const line = document.querySelector('.line');
+            line.style.animation = 'fillLine 2s forwards'; 
+
+            setTimeout(function() {
+                const canvas = document.querySelector('.small-canvas');
+                canvas.style.width = '4vw'; 
+                canvas.style.animation = 'fillCanvas 2s forwards'; // Add animation to fill canvas
+                canvas.style.backgroundColor = 'var(--neon-pink)'; 
+
+                // Change button color to neon pink
+                const button = document.querySelector('.custom-button');
+                button.style.backgroundColor = 'var(--neon-pink)';
+            }, 1000); 
+        } else {
+            alert("Please fill in all input fields before proceeding.");
+        }
     });
-</script>    
+
+    document.getElementById('selectOption').addEventListener('change', function () {
+    // Get the value of the select element
+    var selectValue = this.value;
+
+    if (selectValue === '0') {
+        // Revert changes
+        const line = document.querySelector('.line');
+        line.style.animation = ''; // Reset animation
+
+        const canvas = document.querySelector('.small-canvas');
+        canvas.style.width = ''; 
+        canvas.style.animation = ''; // Reset animation
+        canvas.style.backgroundColor = ''; 
+
+        // Reset button color
+        const button = document.querySelector('.custom-button');
+        button.style.backgroundColor = ''; 
+    }
+});
+
+
+</script>
+
+<script>
+function sendData() {
+    var inputValues = [];
+    var inputs = document.querySelectorAll('input[type="number"]');
+    inputs.forEach(function(input) {
+        inputValues.push(input.value);
+    });
+
+    // Send input values to Django view using AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "{% url 'custom' %}", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText); // Print response from Django view
+        }
+    };
+    xhr.send(JSON.stringify({inputValues: inputValues}));
+}
+</script>
 
 {% endblock %}
 {% block footer %}

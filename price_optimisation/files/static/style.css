@@ -758,6 +758,10 @@ footer {
 
 .body-your-feature-selector {
     min-height: 200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
 }
 
 .body-your-feature-input-text h1 {
@@ -824,12 +828,12 @@ footer {
     position: absolute;
     top: 1vh;
     right: 50vh;
-    width: 0; /* Initially the canvas has no width */
+    width: 0; 
     height: 5vh; 
     background-color: var(--light-black); 
     border-radius: 5px; 
-    overflow: hidden; /* Ensure the overflow is hidden as the width increases */
-    transition: width 2s; /* Smooth transition for the animation */
+    overflow: hidden; 
+    transition: width 2s; 
 }
 
 @keyframes fillLine {
@@ -878,4 +882,207 @@ footer {
     font-size: 16px;
     margin-top: 5vh;
     color: var(--bg-color); 
+}
+
+.body-your-feature-selector-inside {
+    background-color: var(--bg-color);
+    height: 70vh;
+    margin-top: 17vh;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.body-your-feature-selector-inside-text {
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    margin-left: 2vw;
+    margin-top: 1vw;
+    border-bottom: 12px solid var(--light-black);
+    width: 43.5vh;
+}
+
+.body-your-feature-selector-inside-text h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: var(--light-black);
+    line-height: 0.8;
+}
+
+.body-your-feature-selector-inside-inside {
+    margin-top: 2vh;
+    height: 15vh;
+    width: 100%;
+    display: flex; 
+    flex-direction: row;
+}
+
+.body-your-feature-checkbox {
+    width: 40%;
+    overflow: auto;
+    border: 1px solid var(--light-black); 
+    margin-left: 2vw;
+}
+
+.body-your-feature-input-main {
+    width: 41.5%;
+    overflow: auto;
+    border: 1px solid var(--light-black); 
+    margin-left: 0.5vw;
+}
+
+.body-your-feature-input-main::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+}
+
+.body-your-feature-input-main::-webkit-scrollbar-thumb {
+    background: var(--light-black);
+    border-radius: 4px; 
+}
+
+.body-your-feature-checkbox::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+}
+
+.body-your-feature-checkbox::-webkit-scrollbar-thumb {
+    background: var(--light-black);
+    border-radius: 4px; 
+}
+
+/* Checkbox styling */
+.body-your-feature-checkbox input[type="checkbox"] {
+    display: none; /* Hide the actual checkbox */
+}
+
+/* Custom checkbox appearance */
+.body-your-feature-checkbox input[type="checkbox"] + label:before {
+    content: "";
+    display: inline-block;
+    width: 0.8rem; 
+    height: 0.8rem; 
+    border: 2px solid var(--light-black);
+    margin-right: 0.5rem; 
+    vertical-align: middle;
+}
+
+.body-your-feature-checkbox input[type="checkbox"]:checked + label:before {
+    background-color: var(--neon-pink); 
+}
+
+.body-your-feature-checkbox label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1rem;
+    color: var(--light-black);
+    line-height: 0.8;
+    flex: 1;
+    margin-left: 0.2vw;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.body-your-feature-checkbox label:hover {
+    cursor: pointer;
+}
+
+/* Hide the increment and decrement buttons for number input fields */
+.body-your-feature-input-main input[type="number"]::-webkit-inner-spin-button,
+.body-your-feature-input-main input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.body-your-feature-input-main input[type="number"] {
+    -moz-appearance: textfield; 
+}
+
+.body-your-feature-input-main input[type="number"]:focus {
+    outline: none;
+}
+
+.body-your-feature-input-main input[type="text"] {
+  border: none;
+  border-bottom: 2px solid var(--light-black);
+  background-color: transparent;
+  font-size: 0.5rem; 
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8rem; 
+  transition: border-color 0.3s ease;
+}
+
+/* Placeholder styling (unchanged) */
+.body-your-feature-input-main input::placeholder {
+  color: var(--light-black);
+}
+
+/* Hover state for input (unchanged) */
+.body-your-feature-input-main input:hover {
+  border-color: var(--neon-pink);
+}
+
+
+.body-your-feature-inside-desc {
+    margin-left: 2vw;
+    width: 21.2vw;
+    border-bottom: 5px solid var(--light-black);
+}
+
+.body-your-feature-inside-desc p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    text-align: justify;
+    font-weight: 400;
+}
+
+.body-your-feature-outcome {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    text-align: justify;
+    font-weight: 600;
+    color: var(--light-black));
+}
+
+.outcome-div-cover {
+    margin-left: 2vw;
+    width: 5vw;
+}
+
+.body-your-feature-outcome-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    text-align: left;
+    font-weight: 400;
+}
+
+.outcome-div-cover-bottom {
+    position: relative;
+    margin-top: 2vh;
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-inside {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: left;
+    font-weight: 700;
+    color: var(--light-black);
 }
