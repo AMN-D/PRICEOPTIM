@@ -43,7 +43,7 @@
                     <p>DPO for Business: Precision Pricing Made Simple. Discover the Ideal Price for Your Product or Service, Regardless of Your Business Size. Maximize Profitability with Confidence</p>
                 </div>
                 <div class="body-your-feature-input-main-eval">
-                    <button class="custom-button">Evaluate</button>
+                    <button class="custom-button" onclick="retrieveInputFieldValues()">Evaluate</button>
                     <div class="line-old"></div>
                     <div class="line"></div>
                     <canvas class="small-canvas-old"></canvas>
@@ -87,6 +87,18 @@
 </div>
 
 <script>
+
+    function retrieveInputFieldValues() {
+        var inputFields = document.querySelectorAll('input[type="number"]');
+        
+        inputFields.forEach(function(input, index) {
+            var inputId = 'input_' + index;
+            var inputName = input.getAttribute('name');
+            console.log(inputId + ' (' + inputName + '):', input.value);
+        });
+    }
+
+
     document.addEventListener("DOMContentLoaded", function () {
         var selectElement = document.getElementById('selectOption');
         var outcomeDiv = document.getElementById('outcome-div');
@@ -102,9 +114,11 @@
             selectedFeatures.forEach(function(feature, index) {
                 var input = document.createElement('input');
                 var inputId = 'input_' + index; // Unique ID for each input field
+                var inputName = feature.toUpperCase().replace('_', ' '); // Name derived from placeholder
                 input.id = inputId;
+                input.name = inputName; // Set the name attribute
                 input.type = 'number';
-                input.placeholder = feature.toUpperCase().replace('_', ' ');
+                input.placeholder = inputName; // Set the placeholder
                 input.required = true; 
 
                 input.style.backgroundColor = 'transparent'; 
@@ -118,44 +132,6 @@
                 inputContainerDiv.appendChild(input);
             });
         }
-
-        function retrieveInputFieldValues() {
-            var inputValues = {};
-            var inputFields = document.querySelectorAll('input[type="number"]');
-            
-            inputFields.forEach(function(input) {
-                var inputId = input.id.split('_')[1];
-                inputValues[inputId] = input.value;
-            });
-            
-            return inputValues;
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var evaluateButton = document.querySelector('.custom-button');
-
-            evaluateButton.addEventListener('click', function() {
-                var inputValues = retrieveInputFieldValues();
-                console.log(inputValues); // Or do something else with the values
-            });
-        });
-
-        function collectInputValues(selectedFeatures) {
-            var inputValues = {}; // Dictionary to store input values
-
-            selectedFeatures.forEach(function(feature, index) {
-                var inputId = 'input_' + index;
-                var inputElement = document.getElementById(inputId);
-
-                // Check if input element exists and has a value
-                if (inputElement && inputElement.value) {
-                    inputValues[feature] = inputElement.value;
-                }
-            });
-
-            console.log(inputValues);
-        }
-
 
         function createFeatureCheckbox(feature) {
             var checkbox = document.createElement('input');
@@ -208,15 +184,6 @@
             featureCheckboxDiv.appendChild(checkbox);
             featureCheckboxDiv.appendChild(label);
             featureCheckboxDiv.appendChild(document.createElement('br'));
-        }
-
-        function removeInputFields(feature) {
-            var inputs = inputContainerDiv.querySelectorAll('input');
-            inputs.forEach(function(input) {
-                if (input.placeholder.toLowerCase().includes(feature.toLowerCase())) {
-                    input.remove();
-                }
-            });
         }
 
         selectElement.addEventListener('change', function () {
