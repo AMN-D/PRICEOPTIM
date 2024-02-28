@@ -173,16 +173,25 @@
         })
         .then(response => {
             if (response.ok) {
-                console.log('sendDataToDjango')
-                // Handle success response if needed
+                return response.json(); // Parse the JSON response
             } else {
-                // Handle error response if needed
+                throw new Error('Failed to fetch data');
+            }
+        })
+        .then(data => {
+            // Update HTML content with optimized_price
+            const optimizedPriceElement = document.getElementById('newValue');
+            if (optimizedPriceElement) {
+                optimizedPriceElement.innerText = 'VALUENEW - ' + data.optimized_price;
+            } else {
+                console.error('Element with id "newValue" not found');
             }
         })
         .catch(error => {
             console.error('Error sending data to Django:', error);
         });
     }
+
 
     function retrieveInputFieldValuesAndSendData() {
         var inputFields = document.querySelectorAll('input[type="number"]');
