@@ -84,7 +84,75 @@
             </div>
         </div>
     </div>
+    <div class="body-result">
+        <div class="body-result-inside">
+            <div class="body-result-header">
+                <div class="body-result-header-logo">~</div>
+                <div class="body-result-header-desc">
+                    <p>RESULT</p>
+                </div>
+            </div>
+            <div class="body-result-container">
+                <div class="body-result-container-main">
+                    <div class="model-name">
+                        <h1 id="modelName">MODEL- </h1>
+                    </div>
+                    <div class="other-values-old">
+                        <h1 id="oldValue">VALUEOLD- {{ response_data.historical_price_scaled }}</h1>
+                    </div>
+                    <div class="other-values-new">
+                        <h1 id="newValue">VALUENEW- </h1>
+                    </div>
+                    <div class="other-values-rmse">
+                        <h1 id="rmse">RMSE- {{rmse}}</h1>
+                    </div>
+                    <div class="other-values-mse">
+                        <h1 id="mse">MSE- {{mse}}</h1>
+                    </div>
+                    <div class="other-values-msc">
+                        <h1 id="msc">MAE- {{mae}}</h1>
+                    </div>
+                    <div class="body-result-container-main-desc">
+                        <p>2024<br>
+                            <a href="https://github.com/AMN-D" target="_blank">@AMN-D</a>
+                        </p>                        
+                    </div>
+                </div>
+                <div class="body-result-container-info">
+                    <div class="body-result-container-info-text">
+                        <h6>THANKS FOR VISITING</h6>
+                        <p>price optimization</p>
+                        <p>using DNN.</p>
+                    </div>
+                    <div class="body-result-container-info-text-bottom">
+                        <p><a href="https://mail.google.com/mail/?view=cm&to=amanddhumal@gmail.com">amanddhumal@gmail.com</a></p>
+                        <p><a href="https://www.linkedin.com/in/aman-dhumal-20b882297/?originalSubdomain=in">LINKEDIN</a></p>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+    document.getElementById('selectOption').addEventListener('change', function() {
+        var modelName = document.getElementById('modelName');
+        var oldValue = document.getElementById('oldValue');
+        var newValue = document.getElementById('newValue');
+        var rmse = document.getElementById('rmse').textContent; // Accessing textContent
+        var mse = document.getElementById('mse').textContent; // Accessing textContent
+        var msc = document.getElementById('msc').textContent; // Accessing textContent
+        var selectOption = document.getElementById('selectOption');
+        var selectedValue = selectOption.value;
+        var selectedText = selectOption.options[selectOption.selectedIndex].text;
+        modelName.textContent = "MODEL- " + selectedText;
+        oldValue.textContent = "VALUEOLD- " + "000000";
+        newValue.textContent = "VALUENEW- " + "000000";
+        rmse.textContent = "RMSE- " + rmse; 
+        mse.textContent = "MSE- " + mse; 
+        msc.textContent = "MSC- " + msc; 
+    });
+</script>
 
 <script>
 
