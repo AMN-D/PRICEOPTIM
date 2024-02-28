@@ -182,16 +182,24 @@
             // Update HTML content with optimized_price
             const optimizedPriceElement = document.getElementById('newValue');
             if (optimizedPriceElement) {
-                optimizedPriceElement.innerText = 'VALUENEW - ' + data.optimized_price;
+                const optimizedPrice = parseFloat(data.optimized_price).toFixed(7);
+                optimizedPriceElement.innerText = 'VALUENEW - ' + optimizedPrice;
             } else {
                 console.error('Element with id "newValue" not found');
+            }
+            
+            // Update HTML content with historical_price_scaled
+            const historicalPriceElement = document.getElementById('oldValue');
+            if (historicalPriceElement) {
+                historicalPriceElement.innerText = 'VALUEOLD - ' + data.historical_price_scaled;
+            } else {
+                console.error('Element with id "oldValue" not found');
             }
         })
         .catch(error => {
             console.error('Error sending data to Django:', error);
         });
     }
-
 
     function retrieveInputFieldValuesAndSendData() {
         var inputFields = document.querySelectorAll('input[type="number"]');
