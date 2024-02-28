@@ -31,16 +31,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    const sampleLink = document.querySelector('a[href="##"]');
-    const offset = 900;
+  const sampleLink = document.querySelector('a[href="##"]');
+  const offset = 900;
+  const additionalScroll = 99999; // Additional scroll value
 
-    sampleLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent the default link behavior
-        const targetPosition = this.parentElement.offsetTop + offset;
-        window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth"
-        });
-    });
+  sampleLink.addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default link behavior
+      const targetPosition = this.parentElement.offsetTop + offset + additionalScroll; // Modify target position
+      window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+      });
+  });
 });
+
 

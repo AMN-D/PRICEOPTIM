@@ -1165,13 +1165,13 @@ footer {
 .other-values-msc ,
 .other-values-rmse 
 {
-    margin-top: 1vh; /* Adjust as needed */
+    margin-top: 1vh;
     height: 7vh;
-    width: 80%;
+    width: 70%;
     background-color: var(--bg-color);
     display: flex;
     align-items: center;
-    border-radius: 1px;
+    border-radius: 2px;
 }
 
 .model-name h1,
@@ -1208,23 +1208,23 @@ footer {
 }
 
 .other-values-old {
-    width: 60%;
+    width: 50%;
 }
 
 .other-values-new {
-    width: 70%;
+    width: 60%;
 }
 
 .other-values-accuracy {
-    width: 65%;
-}
-
-.other-values-rmse {
     width: 55%;
 }
 
-.other-values-mse {
+.other-values-rmse {
     width: 45%;
+}
+
+.other-values-mse {
+    width: 35%;
 }
 
 .other-values-msc {
