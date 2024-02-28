@@ -98,19 +98,19 @@
                         <h1 id="modelName">MODEL- </h1>
                     </div>
                     <div class="other-values-old">
-                        <h1 id="oldValue">VALUEOLD- {{ response_data.historical_price_scaled }}</h1>
+                        <h1 id="oldValue">VALUEOLD- </h1>
                     </div>
                     <div class="other-values-new">
                         <h1 id="newValue">VALUENEW- </h1>
                     </div>
                     <div class="other-values-rmse">
-                        <h1 id="rmse">RMSE- {{rmse}}</h1>
+                        <h1 id="rmse">RMSE- </h1>
                     </div>
                     <div class="other-values-mse">
-                        <h1 id="mse">MSE- {{mse}}</h1>
+                        <h1 id="mse">MSE- </h1>
                     </div>
                     <div class="other-values-msc">
-                        <h1 id="msc">MAE- {{mae}}</h1>
+                        <h1 id="mae">MAE- </h1>
                     </div>
                     <div class="body-result-container-main-desc">
                         <p>2024<br>
@@ -137,22 +137,29 @@
 <script>
     document.getElementById('selectOption').addEventListener('change', function() {
         var modelName = document.getElementById('modelName');
-        var oldValue = document.getElementById('oldValue');
-        var newValue = document.getElementById('newValue');
-        var rmse = document.getElementById('rmse').textContent; // Accessing textContent
-        var mse = document.getElementById('mse').textContent; // Accessing textContent
-        var msc = document.getElementById('msc').textContent; // Accessing textContent
+        var rmseElement = document.getElementById('rmse');
+        var mseElement = document.getElementById('mse');
+        var maeElement = document.getElementById('mae');
         var selectOption = document.getElementById('selectOption');
         var selectedValue = selectOption.value;
         var selectedText = selectOption.options[selectOption.selectedIndex].text;
         modelName.textContent = "MODEL- " + selectedText;
-        oldValue.textContent = "VALUEOLD- " + "000000";
-        newValue.textContent = "VALUENEW- " + "000000";
-        rmse.textContent = "RMSE- " + rmse; 
-        mse.textContent = "MSE- " + mse; 
-        msc.textContent = "MSC- " + msc; 
+
+        if (selectedValue === "1") {
+            var rmse = parseFloat("{{ rmse }}").toFixed(7); 
+            rmseElement.textContent = "RMSE- " + rmse;
+            var mse = parseFloat("{{ mse }}").toFixed(5); 
+            mseElement.textContent = "MSE- " + mse;
+            var mae = parseFloat("{{ mae }}").toFixed(2); 
+            maeElement.textContent = "MAE- " + mae;
+        } else {
+            rmseElement.textContent = "RMSE- ";
+            mseElement.textContent = "MSE- ";
+            maeElement.textContent = "MAE- ";
+        }
     });
 </script>
+
 
 <script>
 
