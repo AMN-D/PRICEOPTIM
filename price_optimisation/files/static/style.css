@@ -1171,7 +1171,29 @@ footer {
     background-color: var(--bg-color);
     display: flex;
     align-items: center;
-    border-radius: 2px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.model-name:hover,
+.other-values-old:hover,
+.other-values-new:hover,
+.other-values-accuracy:hover,
+.other-values-mse:hover,
+.other-values-msc:hover,
+.other-values-rmse:hover {
+    background-color: var(--neon-pink); 
+    color: var(--bg-color); 
+}
+
+.model-name h1:hover,
+.other-values-old h1:hover,
+.other-values-new h1:hover,
+.other-values-accuracy h1:hover,
+.other-values-mse h1:hover,
+.other-values-msc h1:hover,
+.other-values-rmse h1:hover {
+    color: var(--bg-color); 
 }
 
 .model-name h1,
@@ -1181,6 +1203,7 @@ footer {
 .other-values-mse h1,
 .other-values-msc h1,
 .other-values-rmse h1 {
+    transition: background-color 0.3s, color 0.3s;
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     font-weight: 500;
@@ -1313,4 +1336,42 @@ footer {
 
 .body-result-container-info-text-bottom a:hover {
     color: var(--neon-pink);
+}
+
+.body-your-main-scroll {
+    position: fixed;
+    top: 50%; 
+    left: 50px; 
+    transform: translateY(-50%); 
+    width: auto;
+    height: 2vh;
+    z-index: 9999; 
+}
+
+.scroll1,
+.scroll2,
+.scroll3 {
+    width: 8px;
+    height: 8px;
+    border-radius: 60px; 
+    background-color: var(--bg-color);
+    margin-bottom: 5px; 
+    box-shadow: 0 0 0 0.7px var(--light-black);
+    transition: height 0.3s ease-in-out;
+}
+
+.scroll1.increase,
+.scroll2.increase,
+.scroll3.increase {
+    height: 15px; 
+}
+
+.scroll1 a,
+.scroll2 a,
+.scroll3 a {
+    color: transparent;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%; 
+    text-decoration: none;
 }
