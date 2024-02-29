@@ -9,18 +9,18 @@ function reloadVisualizationDisplay() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function pltBarChart(actualData, predictedData) {
+function pltBarChart(actualData, predictedData, parentContainerClass) {
 
     actualData = JSON.parse(actualData);
     predictedData = JSON.parse(predictedData);
 
     var canvas = document.getElementById('plotCanvas');
-    var ctx = canvas.getContext('2d');
+    var parentContainer = document.querySelector('.' + parentContainerClass);
 
-    var canvasWidth = 700;
-    var canvasHeight = 600;
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
+    canvas.width = parentContainer.offsetWidth;
+    canvas.height = parentContainer.offsetHeight;
+
+    var ctx = canvas.getContext('2d');
 
     var data = {
         labels: actualData.map((value, index) => index), // Assuming index as labels
@@ -55,18 +55,18 @@ function pltBarChart(actualData, predictedData) {
 
 }
 
-function pltLineplot(actualData, predictedData) {
+function pltLineplot(actualData, predictedData, parentContainerClass) {
 
     actualData = JSON.parse(actualData);
     predictedData = JSON.parse(predictedData);
 
     var canvas = document.getElementById('plotCanvas');
-    var ctx = canvas.getContext('2d');
+    var parentContainer = document.querySelector('.' + parentContainerClass);
 
-    var canvasWidth = 700;
-    var canvasHeight = 600;
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
+    canvas.width = parentContainer.offsetWidth;
+    canvas.height = parentContainer.offsetHeight;
+    
+    var ctx = canvas.getContext('2d');
 
     var data = {
         labels: actualData.map((value, index) => index), 
@@ -102,19 +102,19 @@ function pltLineplot(actualData, predictedData) {
 
 }
 
-function pltScatterplot(actualData, predictedData) {
+function pltScatterplot(actualData, predictedData, parentContainerClass) {
     // Parse actual and predicted data from string to array
     actualData = JSON.parse(actualData);
     predictedData = JSON.parse(predictedData);
 
     // Get canvas element
     var canvas = document.getElementById('plotCanvas');
+    var parentContainer = document.querySelector('.' + parentContainerClass);
+
+    canvas.width = parentContainer.offsetWidth;
+    canvas.height = parentContainer.offsetHeight;
+
     var ctx = canvas.getContext('2d');
-    
-    var canvasWidth = 700;
-    var canvasHeight = 600;
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
     
     var data = {
         datasets: [{
@@ -166,13 +166,13 @@ function printSelectedValue(actualData, predictedData) {
                 reloadVisualizationDisplay();
                 break;
             case '1':
-                pltScatterplot(actualData, predictedData);
+                pltScatterplot(actualData, predictedData, 'body-main-anal-canvas');
                 break;
             case '2':
-                pltLineplot(actualData, predictedData);
+                pltLineplot(actualData, predictedData, 'body-main-anal-canvas');
                 break;
             case '3':
-                pltBarChart(actualData, predictedData);
+                pltBarChart(actualData, predictedData, 'body-main-anal-canvas');
                 break;
             default:
                 console.log("Invalid value");

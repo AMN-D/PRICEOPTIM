@@ -17,18 +17,28 @@ window.addEventListener("scroll", function () {
 }, false);
 
 document.addEventListener("DOMContentLoaded", function() {
-    const sampleLink = document.querySelector('a[href="#"]');
-    const offset = 695;
+  const sampleLink = document.querySelector('a[href="#"]');
+  const offset = 0;
 
-    sampleLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent the default link behavior
-        const targetPosition = this.parentElement.offsetTop + offset;
-        window.scrollTo({
-            top: targetPosition,
-            behavior: "smooth"
-        });
-    });
+  sampleLink.addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default link behavior
+      const targetDiv = document.querySelector(".body-main-anal-container");
+      const targetPosition = getOffset(targetDiv);
+      window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+      });
+  });
 });
+
+function getOffset(element) {
+  let offset = 0;
+  while (element) {
+      offset += element.offsetTop;
+      element = element.offsetParent;
+  }
+  return offset;
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   const sampleLink = document.querySelector('a[href="##"]');

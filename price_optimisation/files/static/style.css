@@ -127,15 +127,22 @@ body {
     display: flex;
     margin-top: 10%;
     width: 100%;
-    height: 85%;
+    height: 100%;
     display: flex;
     justify-content: center;
     position: relative;
     flex-direction: column;
 }
 
+.body-main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 .body-main-custom {
     display: flex;
+    flex-direction: row;
     position: relative;
     min-width: 80%;
     margin: 0 auto;
@@ -155,8 +162,8 @@ body {
     justify-content: flex-start;
     align-items: center;
     flex: 1;
-    min-height: 100px;
     position: relative;
+    height: 100%;
 }
 
 .body-image-container {
@@ -165,21 +172,26 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     width: 68%;
-    height: 430px;
+    height: 60%;
     border-bottom: 5px black solid;
     border-bottom-left-radius: 5px; 
     border-bottom-right-radius: 5px;
     margin-top: 5%;
 }
 
+.number-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 70%;
+    padding-top: 5%;
+}
+
 .body-image-hr {
     position: relative;
-    width: 200px;
+    width: 50%;
     height: 2px;
     background-color: var(--neon-gold);
-    bottom: -4.4%;
-    left: 4.5%;
-    transform: translateX(-50%);
     transition: box-shadow 0.3s ease;
     cursor: pointer;
 }
@@ -190,23 +202,13 @@ body {
 
 .left-number,
 .right-number {
-    position: absolute;
-    bottom: 0;
-    transform: translateY(-50%);
+    position: relative;
     font-size: 14px;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
     letter-spacing: 3px;
-}
-
-.left-number {
-    left: 16%;
-    
-}
-
-.right-number {
-    right: 24%;
+    margin: 0 1%;
 }
 
 .body-container-text {
@@ -304,14 +306,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; 
+    flex-direction: column;
     height: 100vh;
     width: 100%;
-    margin-top: 90px;
     background-color: #121212;
 }
 
 .body-main-anal-container {
     display: flex;
+    flex-direction: row;
     justify-content: flex-start;
     height: 100vh;
     min-width: 80%;
@@ -332,7 +335,7 @@ body {
 
 .body-main-anal-selector {
     width: 0;
-    padding-top: 10%;
+    padding-top: 7%;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -374,7 +377,7 @@ body {
 .body-main-anal-main {
     display: flex;
     flex-direction: column;
-    min-height: 100px;
+    flex: 1;
     width: 45%;
     padding-left: 10%;
 }
@@ -389,10 +392,10 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 65%;
-    min-height: 100px;
+    width: 60%;
     position: relative;
     margin-right: 10%;
+    margin-left: 5%;
 }
 
 .body-main-anal-desc {
@@ -407,11 +410,13 @@ body {
     font-family: "Poppins", sans-serif;
     font-weight: 100;
     font-style: normal;
-    font-size: 16px;
+    font-size: 0.83rem;
     color: var(--bg-color); 
     text-align: justify;
     text-align: justify;
     width: 85%;
+    height: 28%;
+    overflow: hidden;
 }
 
 .body-main-anal-desc-expand a {
@@ -426,10 +431,11 @@ body {
 }
 
 .body-main-anal-canvas {
-    width: 700px;
-    height: 620px;
-    margin-top: 10%;
+    padding-bottom: 2%;
     position: absolute;
+    width: 100%;
+    height: 85%;
+    margin-top: 10%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.3s ease;
 }
@@ -471,14 +477,14 @@ body {
 }
 
 .body-main-custom-abs {
-    position: absolute;
-    bottom: 55.2%;
-    left: 68%; 
+    position: relative;
+    margin-top: 3%;
+    left: 50%; 
     transform: translateX(-50%); 
     display: block;
     background-color: var(--neon-gold);
-    width: 480px;
-    height: 70px;
+    width: 100%;
+    height: 20%;
 }
 
 footer {

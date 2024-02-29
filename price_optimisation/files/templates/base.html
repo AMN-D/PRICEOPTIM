@@ -45,37 +45,41 @@
         <div class="body-main-scroll">
             <button id="scrollButton">></button>
         </div>
-        <div class="body-main-custom">
-            <div class="body-container">
-                <div class="body-container-text">
-                    <h1>PRIZ</h1><br>
-                    <h1>ANALYSIS</h1>
+            <div class="body-main-container">
+            <div class="body-main-custom">
+                <div class="body-container">
+                    <div class="body-container-text">
+                        <h1>PRIZ</h1><br>
+                        <h1>ANALYSIS</h1>
+                    </div>
+                    <div class="body-container-text-lite">
+                        <p>OPTIMIZATION</p>
+                    </div>
+                    <div class="body-container-text-desc">
+                        <p>CALCULATATION</p>
+                        <p>ANALYSIS</p>
+                        <p>ACT</p>
+                    </div>
+                    <div class="body-container-design">
+                        <div class="body-container-div-design-one"></div>
+                        <div class="body-container-div-design-two"></div>
+                        <div class="body-container-div-design-three"></div>
+                    </div>
+                    <div class="body-container-div-num">
+                        <p>091</p>
+                    </div>
                 </div>
-                <div class="body-container-text-lite">
-                    <p>OPTIMIZATION</p>
+                <div class="body-image">
+                    <div class="body-image-container"></div>
+                    <div class="number-container">
+                        <span class="left-number">01</span>
+                        <div class="body-image-hr"></div>
+                        <span class="right-number">02 03 04 05</span>
+                    </div>
+                    <div class="body-main-custom-abs"></div>
                 </div>
-                <div class="body-container-text-desc">
-                    <p>CALCULATATION</p>
-                    <p>ANALYSIS</p>
-                    <p>ACT</p>
-                </div>
-                <div class="body-container-design">
-                    <div class="body-container-div-design-one"></div>
-                    <div class="body-container-div-design-two"></div>
-                    <div class="body-container-div-design-three"></div>
-                </div>
-                <div class="body-container-div-num">
-                    <p>091</p>
-                </div>
-            </div>
-            <div class="body-image">
-                <div class="body-image-container"></div>
-                <div class="body-image-hr"></div>
-                <span class="left-number">01</span>
-                <span class="right-number">02 03 04 05</span>
             </div>
         </div>
-        <div class="body-main-custom-abs"></div>
         <div class="body-main-anal-black">
             <div class="body-main-anal-container">
                 <div class="body-main-anal-main">
@@ -118,14 +122,23 @@
     <script>
         const scrollButton = document.getElementById("scrollButton");
         scrollButton.addEventListener("click", function() {
-            const targetDiv = document.querySelector(".body-main-anal-black");
-            const offset = 150; 
-            const targetPosition = targetDiv.offsetTop + offset;
+            const targetDiv = document.querySelector(".body-main-anal-container");
+            const offset = getOffset(targetDiv);
+            const targetPosition = window.scrollY + offset;
             window.scrollTo({
                 top: targetPosition,
                 behavior: "smooth"
             });
         });
+
+        function getOffset(element) {
+            let offset = 0;
+            while (element) {
+                offset += element.offsetTop;
+                element = element.offsetParent;
+            }
+            return offset;
+        }
     </script>
     {% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
