@@ -43,14 +43,11 @@
                         Product</h1>
                 </div>
                 <div class="body-your-feature-input-paragraph">
-                    <p>DPO for Business: Precision Pricing Made Simple. Discover the Ideal Price for Your Product or Service, Regardless of Your Business Size. Maximize Profitability with Confidence</p>
+                    <p>DPO for Business: Precision Pricing Made Simple. Discover the Ideal Price for Your Product or Service, Regardless of Your Business. Maximize Profitability with Confidence</p>
                 </div>
                 <div class="body-your-feature-input-main-eval">
                     <button class="custom-button" onclick="retrieveInputFieldValuesAndSendData()">Evaluate</button>
-                    <div class="line-old"></div>
-                    <div class="line"></div>
-                    <canvas class="small-canvas-old"></canvas>
-                    <canvas class="small-canvas"></canvas>
+
                 </div>
                 <div class="body-your-inside-design-input-main">
                     <p>092</p>
@@ -143,17 +140,17 @@
         var scrollPosition = window.scrollY;
         var scroll1 = document.querySelector('.scroll1');
         var scroll2 = document.querySelector('.scroll2');
-        var scroll3 = document.querySelector('.scroll3'); // Select .scroll3 element
+        var scroll3 = document.querySelector('.scroll3');
 
         // Increase the height of the first dot if at the top
-        if (scrollPosition <= 200) { // Adjust the value as desired
+        if (scrollPosition <= 200) {
             scroll1.classList.add('increase');
         } else {
             scroll1.classList.remove('increase');
         }
 
         // Increase the height of the second dot if below the top and within a certain range
-        if (scrollPosition > 200 && scrollPosition <= 800) { // Adjusted the range here
+        if (scrollPosition > 200 && scrollPosition <= 800) {
             scroll2.classList.add('increase');
         } else {
             scroll2.classList.remove('increase');
@@ -167,10 +164,44 @@
         }
     });
 
+    document.addEventListener("DOMContentLoaded", function() {
+        const scroll1 = document.querySelector('.scroll1');
+        const scroll2 = document.querySelector('.scroll2');
+        const scroll3 = document.querySelector('.scroll3');
 
+        scroll1.addEventListener("click", function(event) {
+            event.preventDefault();
+            scrollToSection(".body-your-inside");
+        });
 
+        scroll2.addEventListener("click", function(event) {
+            event.preventDefault();
+            scrollToSection(".body-your-feature");
+        });
 
+        scroll3.addEventListener("click", function(event) {
+            event.preventDefault();
+            scrollToSection(".body-result-inside");
+        });
+    });
 
+    function scrollToSection(sectionSelector) {
+        const targetDiv = document.querySelector(sectionSelector);
+        const targetPosition = getOffset(targetDiv);
+        window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+        });
+    }
+
+    function getOffset(element) {
+        let offset = 0;
+        while (element) {
+            offset += element.offsetTop;
+            element = element.offsetParent;
+        }
+        return offset;
+    }
 
     document.addEventListener("DOMContentLoaded", function() {
         const sampleLink = document.querySelector('a[href="####"]');
@@ -429,43 +460,34 @@
 </script>
 
 <script>
-    document.querySelector('.custom-button').addEventListener('click', function() {
-        // Check if there are any input fields
-        var inputFields = document.querySelectorAll('#feature-input-container input');
-        if (inputFields.length === 0) {
-            alert("Please select a feature to proceed.");
-            return;
-        }
+document.querySelector('.custom-button').addEventListener('click', function() {
+    // Check if there are any input fields
+    var inputFields = document.querySelectorAll('#feature-input-container input');
+    if (inputFields.length === 0) {
+        alert("Please select a feature to proceed.");
+        return;
+    }
 
-        // Check if all input fields are filled
-        var allFilled = true;
-        inputFields.forEach(function(input) {
-            if (!input.value.trim()) {
-                allFilled = false;
-                return; // Exit loop early if any input is empty
-            }
-        });
-
-        if (allFilled) {
-            const line = document.querySelector('.line');
-            line.style.animation = 'fillLine 2s forwards'; 
-
-            setTimeout(function() {
-                const canvas = document.querySelector('.small-canvas');
-                canvas.style.width = '4vw'; 
-                canvas.style.animation = 'fillCanvas 2s forwards'; // Add animation to fill canvas
-                canvas.style.backgroundColor = 'var(--neon-pink)'; 
-
-                // Change button color to neon pink
-                const button = document.querySelector('.custom-button');
-                button.style.backgroundColor = 'var(--neon-pink)';
-            }, 1000); 
-        } else {
-            alert("Please fill in all input fields before proceeding.");
+    // Check if all input fields are filled
+    var allFilled = true;
+    inputFields.forEach(function(input) {
+        if (!input.value.trim()) {
+            allFilled = false;
+            return; // Exit loop early if any input is empty
         }
     });
 
-    document.getElementById('selectOption').addEventListener('change', function () {
+    if (allFilled) {
+        // Your existing code for animations here
+
+        // Scroll down to the third div (`.body-result-inside`)
+        scrollToSection(".body-result-inside");
+    } else {
+        alert("Please fill in all input fields before proceeding.");
+    }
+});
+
+document.getElementById('selectOption').addEventListener('change', function () {
     // Get the value of the select element
     var selectValue = this.value;
 
@@ -485,6 +507,23 @@
     }
 });
 
+function scrollToSection(sectionSelector) {
+    const targetDiv = document.querySelector(sectionSelector);
+    const targetPosition = getOffset(targetDiv);
+    window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth"
+    });
+}
+
+function getOffset(element) {
+    let offset = 0;
+    while (element) {
+        offset += element.offsetTop;
+        element = element.offsetParent;
+    }
+    return offset;
+}
 
 </script>
 
