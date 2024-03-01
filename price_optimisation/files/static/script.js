@@ -40,6 +40,7 @@ function getOffset(element) {
   return offset;
 }
 
+/*
 document.addEventListener("DOMContentLoaded", function() {
   const sampleLink = document.querySelector('a[href="##"]');
   const offset = 900;
@@ -54,5 +55,5 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   });
 });
-
+*/
 
