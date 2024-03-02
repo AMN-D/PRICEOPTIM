@@ -36,8 +36,8 @@ PRICEOPTIM is a web application designed to help you optimize product pricing to
 - **Optimize Prices with Confidence:** Input your own product data and let PRICEOPTIM suggest optimal pricing strategies, maximizing your business potential.
 
 ## Glimpse into PRICEOPTIM's World 🌍
-
-![1](https://i.postimg.cc/7GndJSz1/1.jpg) ![2](https://i.postimg.cc/NyTWY3fz/2.jpg) ![3](https://i.postimg.cc/bSYMxd07/3.jpg) ![4](https://i.postimg.cc/njJNL3Xc/4.jpg) ![5](https://i.postimg.cc/vDGpFSR0/5.jpg)
+![image](https://github.com/AMN-D/PRICEOPTIM/assets/129135638/4795c0c1-6850-4542-8852-3e177b0a52bd)
+![image](https://github.com/AMN-D/PRICEOPTIM/assets/129135638/744387ba-c9e8-477c-92de-a67afbaed454)
 
 ## See it in Action! ▶️
 
