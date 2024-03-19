@@ -4,7 +4,7 @@ astunparse==1.6.3
 cachetools==5.3.2
 certifi==2024.2.2
 charset-normalizer==3.3.2
-Django==4.2.10
+Django
 flatbuffers==23.5.26
 gast==0.5.4
 google-auth==2.27.0
